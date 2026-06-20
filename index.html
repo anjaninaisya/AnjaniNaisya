@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | Anjani Naisya Utami</title>
+    <!-- SEO Optimization -->
+    <meta name="description" content="Portofolio Profesional Anjani Naisya Utami - Digital Marketing, Copywriting, Desain Grafis, dan Administrative Assistant.">
+    <meta name="keywords" content="Anjani Naisya Utami, Portofolio, Digital Marketing, Copywriter, Bekasi, UIN Bandung">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lavender: {
+                            light: '#E8DFF5',
+                            dusty: '#B39DDB',
+                            DEFAULT: '#9575CD',
+                            dark: '#7E57C2',
+                        },
+                        brand: {
+                            navy: '#1A237E',
+                            darkNavy: '#0D1137',
+                            pink: '#F48FB1',
+                            blue: '#4FC3F7',
+                            emerald: '#10B981',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Devicon for Tech Logos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    
+    <!-- Custom Soft Animations and UI tokens -->
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
+        
+        .glassmorphism {
+            background: rgba(13, 17, 55, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(179, 157, 219, 0.25);
+            transform: translateY(-4px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #F48FB1 0%, #B39DDB 50%, #4FC3F7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0D1137;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #7E57C2;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #F48FB1;
+        }
+    </style>
+</head>
+<body class="bg-brand-darkNavy text-slate-200 font-sans antialiased selection:bg-lavender selection:text-brand-darkNavy overflow-x-hidden">
+
+    <!-- Audio & UI Utilities Toast Notifications -->
+    <div id="toast-container" class="fixed top-24 right-6 z-50 flex flex-col gap-3 pointer-events-none"></div>
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 glassmorphism transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold tracking-wider gradient-text flex items-center gap-2">
+                <i class="fa-solid fa-sparkles text-brand-pink text-base animate-pulse"></i>
+                ANJANI.
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
+                <a href="#tentang" class="hover:text-brand-pink transition-colors relative group py-2">
+                    Tentang
+                    <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-brand-pink transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#skill" class="hover:text-brand-pink transition-colors relative group py-2">
+                    Keahlian
+                    <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-brand-pink transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#pendidikan" class="hover:text-brand-pink transition-colors relative group py-2">
+                    Pendidikan
+                    <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-brand-pink transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#pengalaman" class="hover:text-brand-pink transition-colors relative group py-2">
+                    Pengalaman
+                    <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-brand-pink transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#kontak" class="hover:text-brand-pink transition-colors relative group py-2">
+                    Kontak
+                    <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-brand-pink transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <button onclick="openResumeModal()" class="border border-white/20 hover:border-brand-pink/50 px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-white/5">
+                    <i class="fa-solid fa-file-pdf mr-2 text-brand-pink"></i>Resume
+                </button>
+                <a href="#kontak" class="bg-gradient-to-r from-lavender-dark to-brand-navy border border-lavender-dusty/30 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider hover:shadow-[0_0_20px_rgba(179,157,219,0.4)] transition-all duration-300 hover:scale-105">
+                    Hire Me
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-pink/50 rounded p-2" aria-label="Toggle Navigation Menu">
+                <i id="hamburger-icon" class="fa-solid fa-bars-staggered text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Slide-out Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brand-darkNavy/95 z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col justify-center items-center space-y-8 text-xl font-semibold backdrop-blur-md">
+        <a href="#tentang" onclick="toggleMobileMenu()" class="hover:text-brand-pink transition-colors">Tentang</a>
+        <a href="#skill" onclick="toggleMobileMenu()" class="hover:text-brand-pink transition-colors">Keahlian</a>
+        <a href="#pendidikan" onclick="toggleMobileMenu()" class="hover:text-brand-pink transition-colors">Pendidikan</a>
+        <a href="#pengalaman" onclick="toggleMobileMenu()" class="hover:text-brand-pink transition-colors">Pengalaman</a>
+        <a href="#kontak" onclick="toggleMobileMenu()" class="hover:text-brand-pink transition-colors">Kontak</a>
+        <div class="flex flex-col gap-4 w-2/3">
+            <button onclick="openResumeModal(); toggleMobileMenu();" class="w-full text-center border border-brand-pink/30 hover:border-brand-pink px-6 py-3 rounded-xl text-sm font-semibold uppercase tracking-wider transition-all">
+                <i class="fa-solid fa-file-pdf mr-2"></i>Resume
+            </button>
+            <a href="#kontak" onclick="toggleMobileMenu()" class="w-full text-center bg-gradient-to-r from-brand-pink to-lavender text-brand-darkNavy py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all">
+                Hire Me
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden px-6">
+        <!-- Floating Flower-like Gradient Orbs -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-lavender/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-pink/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute top-1/2 right-1/3 w-80 h-80 bg-brand-blue/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 w-full">
+            <!-- Hero Text -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left order-2 lg:order-1 animate-fade-in">
+                <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full backdrop-blur-md">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="text-xs font-semibold tracking-widest text-lavender-light uppercase">Tersedia untuk Peluang Baru</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-tight">
+                    <span class="block text-2xl md:text-3xl font-light text-slate-400 mb-2">Portofolio Kreatif & Administratif</span>
+                    <span class="gradient-text">Anjani Naisya Utami</span>
+                </h1>
+                <p class="text-lg text-slate-300 max-w-2xl leading-relaxed font-light mx-auto lg:mx-0">
+                    Menghubungkan ketajaman analisis strategis <strong class="text-white font-medium">Digital Marketing & Copywriting</strong> dengan keandalan operasional <span class="text-brand-pink font-semibold">Administrative Assistant</span>. 
+                </p>
+                <p class="text-base text-slate-400 max-w-2xl leading-relaxed font-light hidden md:block">
+                    Dengan latar belakang pendidikan aktif S1 Manajemen dari UIN Bandung (IPK 3.70), saya berpengalaman mengelola kampanye media sosial, merumuskan copywriting bernilai konversi tinggi, serta merancang sistem administrasi yang efisien dan rapi.
+                </p>
+                
+                <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#pengalaman" class="bg-gradient-to-r from-brand-pink to-lavender-dark text-brand-darkNavy font-bold px-8 py-3.5 rounded-xl hover:scale-105 transition-all duration-300 shadow-lg shadow-brand-pink/20 flex items-center gap-2">
+                        <i class="fa-solid fa-briefcase"></i> Lihat Pengalaman Kerja
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Visual -->
+            <div class="lg:col-span-5 flex justify-center order-1 lg:order-2">
+                <div class="relative w-72 h-72 md:w-96 md:h-96 group">
+                    <!-- Elegant Cinematic Glow & Lavender Frame -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-navy via-lavender to-brand-pink rounded-[2rem] rotate-6 opacity-30 group-hover:rotate-3 transition-transform duration-500 blur-sm"></div>
+                    <div class="absolute inset-0 bg-gradient-to-bl from-brand-blue via-lavender-dark to-brand-pink rounded-[2rem] -rotate-3 opacity-20 group-hover:-rotate-1 transition-transform duration-500"></div>
+                    
+                    <!-- Main Frame -->
+                    <div class="relative w-full h-full rounded-[2rem] overflow-hidden border border-white/10 bg-brand-navy/80 shadow-2xl">
+                        <!-- Profile Photo -->
+                        <img id="profile-img" src="profile new.jpg_2.jpg" 
+                             alt="Anjani Naisya Utami" 
+                             onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80'"
+                             class="w-full h-full object-cover object-center mix-blend-luminosity hover:mix-blend-normal transition-all duration-700 scale-105 hover:scale-100" />
+                        <!-- Cinematic Overlay Light -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-darkNavy via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+                            <div>
+                                <p class="text-xs text-brand-pink font-semibold uppercase tracking-widest">Bekasi, Indonesia</p>
+                                <p class="text-sm text-slate-300 font-medium">UIN Sunan Gunung Djati Bandung</p>
+                            </div>
+                            <div class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">
+                                Siap Bekerja
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="border-white/5 max-w-7xl mx-auto">
+
+    <!-- Value Statement / Why Choose Me Section -->
+    <section id="tentang" class="py-24 max-w-7xl mx-auto px-6 relative">
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+            <h2 class="text-xs uppercase tracking-widest text-brand-blue font-bold">Mengapa Memilih Saya?</h2>
+            <p class="text-3xl md:text-4xl font-bold text-white tracking-tight">Menyelaraskan Visi Kreatif dengan Struktur Administrasi yang Presisi</p>
+            <p class="text-slate-400 text-sm md:text-base font-light">Sebagai mahasiswa Manajemen, saya mengintegrasikan pendekatan bisnis strategis ke dalam ranah komunikasi visual dan operasional administratif.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card p-8 rounded-2xl group">
+                <div class="w-12 h-12 rounded-xl bg-brand-pink/10 flex items-center justify-center text-brand-pink mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-bullhorn text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-white mb-3">Pemasaran Digital Strategis</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">Mampu meriset target pasar, merencana kalender konten, merumuskan kampanye organik, serta meningkatkan engagement audiens secara berkelanjutan.</p>
+            </div>
+            <div class="glass-card p-8 rounded-2xl group">
+                <div class="w-12 h-12 rounded-xl bg-lavender/10 flex items-center justify-center text-lavender-dusty mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-pen-nib text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-white mb-3">Copywriting & Narasi</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">Menerjemahkan ide abstrak menjadi tulisan persuasif, hook media sosial yang memikat, naskah video pendek, serta takarir (caption) kreatif yang menjual.</p>
+            </div>
+            <div class="glass-card p-8 rounded-2xl group">
+                <div class="w-12 h-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-folder-open text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-white mb-3">Administrasi Profesional</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">Sistematis dalam menangani data, menyusun dokumentasi laporan, mengoperasikan spreadsheet kompleks, serta berkoordinasi erat lintas divisi perusahaan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Repository: Skills & Education -->
+    <section class="py-24 bg-gradient-to-b from-brand-darkNavy to-brand-navy/40 relative">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Skill Repository Section (Left) -->
+            <div id="skill" class="lg:col-span-7 space-y-8">
+                <div>
+                    <h2 class="text-xs uppercase tracking-widest text-brand-pink font-bold mb-2">Kompetensi Utama</h2>
+                    <p class="text-3xl font-bold text-white tracking-tight">Keahlian & Perkakas Kerja</p>
+                    <p class="text-slate-400 text-sm mt-1">Klik pada kartu keahlian untuk melihat bukti desain dan proyek kerja.</p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    <!-- Microsoft Excel (Excel portfolio verification gallery) -->
+                    <div onclick="openExcelPortfolioModal()" class="relative overflow-hidden bg-gradient-to-br from-emerald-500/10 to-brand-navy border border-emerald-500/30 p-5 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:border-emerald-400 hover:bg-emerald-500/10 transition-all group active:scale-95 shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+                        <div class="absolute -top-1 -right-1 bg-emerald-500 text-brand-darkNavy text-[8px] font-extrabold uppercase px-2 py-0.5 rounded-bl-lg tracking-wider animate-bounce">Bukti</div>
+                        <i class="devicon-microsoftexcel-plain colored text-4xl mb-3 filter grayscale group-hover:grayscale-0 transition-all"></i>
+                        <span class="text-sm font-semibold tracking-wide text-emerald-400">Microsoft Excel</span>
+                        <span class="text-[9px] text-slate-400 mt-1">Klik Lihat Portofolio</span>
+                    </div>
+                    <!-- Microsoft Word -->
+                    <div onclick="showSkillDetail('Microsoft Word', 'Ahli dalam penulisan dokumen formal, pembuatan surat bisnis resmi, proposal kerja sama, standar operasional (SOP), dan administrasi surat-menyurat.')" class="bg-white/5 border border-white/10 p-5 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:bg-white/10 transition-all group active:scale-95">
+                        <i class="devicon-microsoftword-plain colored text-4xl mb-3 filter grayscale group-hover:grayscale-0 transition-all"></i>
+                        <span class="text-sm font-medium tracking-wide text-blue-400">Microsoft Word</span>
+                    </div>
+                    <!-- Canva (Direct Design Showcase Integration) -->
+                    <div onclick="openCanvaPortfolioModal()" class="relative overflow-hidden bg-gradient-to-br from-brand-pink/10 to-lavender/5 border border-brand-pink/30 p-5 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:border-brand-pink hover:bg-brand-pink/10 transition-all group active:scale-95 shadow-[0_0_15px_rgba(244,143,177,0.1)]">
+                        <div class="absolute -top-1 -right-1 bg-brand-pink text-brand-darkNavy text-[8px] font-extrabold uppercase px-2 py-0.5 rounded-bl-lg tracking-wider animate-bounce">Galeri</div>
+                        <i class="devicon-canva-original colored text-4xl mb-3 animate-pulse"></i>
+                        <span class="text-sm font-semibold tracking-wide text-brand-pink">Canva</span>
+                        <span class="text-[9px] text-slate-400 mt-1">Klik Lihat Bukti Desain</span>
+                    </div>
+                    <!-- Capcut -->
+                    <div onclick="showSkillDetail('CapCut & Video Editing', 'Memproduksi video pendek berorientasi tren untuk TikTok & Instagram Reels, mengedit transisi visual, mencocokkan irama audio, dan merancang teks teks dinamis.')" class="bg-white/5 border border-white/10 p-5 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:bg-white/10 transition-all group active:scale-95">
+                        <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center mb-3 text-white font-bold text-xs group-hover:bg-black transition-colors">CC</div>
+                        <span class="text-sm font-medium tracking-wide">CapCut Video</span>
+                    </div>
+                    <!-- Mendeley with Custom SVG Logo -->
+                    <div onclick="showSkillDetail('Mendeley & Riset Akademik', 'Mahir menggunakan manajemen pustaka digital Mendeley untuk keperluan riset ilmiah, menyusun karya tulis manajemen, kompilasi referensi, dan pembuatan sitasi yang presisi.')" class="bg-white/5 border border-white/10 p-5 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:bg-white/10 transition-all group active:scale-95">
+                        <div class="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center mb-3 text-white font-bold text-lg select-none shadow-[0_0_10px_rgba(220,38,38,0.5)]">
+                            M
+                        </div>
+                        <span class="text-sm font-medium tracking-wide text-red-400">Mendeley</span>
+                    </div>
+                    <!-- Public Speaking / Communication (Triggers public speaking photo modal) -->
+                    <div onclick="openPublicSpeakingModal()" class="relative overflow-hidden bg-gradient-to-br from-brand-blue/10 to-brand-navy border border-brand-blue/30 p-5 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:border-brand-blue hover:bg-brand-blue/10 transition-all group active:scale-95 shadow-[0_0_15px_rgba(79,195,247,0.1)]">
+                        <div class="absolute -top-1 -right-1 bg-brand-blue text-brand-darkNavy text-[8px] font-extrabold uppercase px-2 py-0.5 rounded-bl-lg tracking-wider animate-bounce">Galeri</div>
+                        <div class="w-10 h-10 rounded-lg bg-brand-blue/20 flex items-center justify-center mb-3 text-brand-blue"><i class="fa-solid fa-comments text-xl animate-bounce"></i></div>
+                        <span class="text-sm font-semibold tracking-wide text-brand-blue">Public Speaking</span>
+                        <span class="text-[9px] text-slate-400 mt-1">Klik Lihat Foto</span>
+                    </div>
+                </div>
+
+                <!-- Live Skill Info Tray -->
+                <div id="skill-detail-tray" class="bg-brand-navy/60 border border-brand-pink/20 p-5 rounded-2xl hidden animate-fade-in">
+                    <h4 id="skill-detail-title" class="text-brand-pink font-bold text-base mb-1"></h4>
+                    <p id="skill-detail-body" class="text-sm text-slate-300 font-light"></p>
+                </div>
+            </div>
+
+            <!-- Education Repository Section (Right) -->
+            <div id="pendidikan" class="lg:col-span-5 space-y-8">
+                <div>
+                    <h2 class="text-xs uppercase tracking-widest text-brand-blue font-bold mb-2">Pendidikan Resmi</h2>
+                    <p class="text-3xl font-bold text-white tracking-tight">Akademik & Fondasi Teoretis</p>
+                </div>
+                <div class="glassmorphism p-8 rounded-2xl border border-white/10 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-lavender/20 to-transparent rounded-bl-full"></div>
+                    <div class="space-y-4">
+                        <div class="bg-lavender-dark/20 text-lavender-light border border-lavender/30 text-xs font-semibold px-3 py-1 rounded-full inline-block">
+                            S1 Manajemen (Sedang Menempuh)
+                        </div>
+                        <h3 class="text-xl font-bold text-white leading-snug">Universitas Islam Negeri Sunan Gunung Djati Bandung</h3>
+                        <div class="flex items-center space-x-4 text-sm text-slate-300 pt-2">
+                            <span class="flex items-center"><i class="fa-regular fa-chart-bar mr-2 text-brand-pink"></i> IPK 3.70</span>
+                            <span class="text-slate-500">|</span>
+                            <span class="text-brand-blue font-medium">Status: Mahasiswa Aktif</span>
+                        </div>
+                        <p class="text-xs text-slate-400 border-t border-white/5 pt-4 leading-relaxed">
+                            Fokus riset pemasaran digital, teori perilaku konsumen, riset manajemen operasional, administrasi arsip terpadu, serta optimalisasi sumber daya organisasi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Experience Section (Unified Experience with Tab selection) -->
+    <section id="pengalaman" class="py-24 bg-gradient-to-t from-brand-darkNavy to-brand-navy/30 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs uppercase tracking-widest text-lavender-dusty font-bold">Jejak Rekam Karya & Kontribusi</h2>
+                <p class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">Pengalaman</p>
+                <p class="text-sm text-slate-400 max-w-xl mx-auto">Silakan pilih kategori di bawah untuk meninjau rekam jejak profesional di bidang industri kreatif & manufaktur, maupun kiprah kepemimpinan aktif dalam organisasi.</p>
+            </div>
+
+            <!-- Tab Selection Buttons -->
+            <div class="flex justify-center mb-12">
+                <div class="bg-white/5 border border-white/10 p-1.5 rounded-2xl flex space-x-2 backdrop-blur-md">
+                    <button onclick="switchExperienceTab('profesional')" id="tab-btn-profesional" class="px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 bg-gradient-to-r from-brand-pink to-lavender-dark text-brand-darkNavy shadow-md font-bold">
+                        <i class="fa-solid fa-briefcase mr-2"></i> Pengalaman Profesional
+                    </button>
+                    <button onclick="switchExperienceTab('organisasi')" id="tab-btn-organisasi" class="px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-users mr-2"></i> Pengalaman Organisasi
+                    </button>
+                </div>
+            </div>
+
+            <!-- Continuous Tab Timeline Contents -->
+            <div class="max-w-4xl mx-auto relative border-l-2 border-white/10 pl-6 md:pl-10">
+                
+                <!-- CONTAINER 1: PENGALAMAN PROFESIONAL -->
+                <div id="experience-profesional-container" class="space-y-12 block transition-all duration-500">
+                    
+                    <!-- Professional 1: Social Media Specialist Intern -->
+                    <div class="relative group">
+                        <div class="absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-brand-pink border-4 border-brand-darkNavy group-hover:scale-125 transition-transform duration-300 shadow-[0_0_10px_rgba(244,143,177,0.8)]"></div>
+                        
+                        <div class="glass-card p-6 md:p-8 rounded-2xl border border-white/5 hover:border-brand-pink/30 transition-all duration-300">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+                                <div>
+                                    <span class="text-[9px] uppercase font-bold bg-brand-pink/10 text-brand-pink px-2.5 py-1 rounded-full border border-brand-pink/20 inline-block mb-2">Profesional</span>
+                                    <h3 class="text-xl font-bold text-white">Social Media Specialist Intern</h3>
+                                    <p class="text-xs text-slate-400 font-medium">Agensi Pemasaran & Perjalanan Umrah Elsafar</p>
+                                </div>
+                                <span class="text-xs font-semibold text-lavender-light bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-xl self-start md:self-auto">
+                                    Juni – Agustus 2025
+                                </span>
+                            </div>
+                            
+                            <!-- Interactive Bullet Points with Direct Modal Triggering -->
+                            <ul class="space-y-4 text-sm text-slate-300 pl-1 leading-relaxed font-light">
+                                <!-- Bullet 1: Konten Planner -->
+                                <li class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-4 transition-all duration-300 cursor-pointer flex items-center justify-between group"
+                                    onclick="openKontenPlannerModal()">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-lg bg-brand-pink/20 flex items-center justify-center text-brand-pink">
+                                            <i class="fa-solid fa-calendar-days text-sm"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-white text-sm group-hover:text-brand-pink transition-colors">Konten Planner</p>
+                                            <p class="text-[11px] text-slate-400">Klik untuk melihat rancangan jadwal kalender kerja Elsafar</p>
+                                        </div>
+                                    </div>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-brand-pink transition-colors pr-2"></i>
+                                </li>
+
+                                <!-- Bullet 2: Editor & Talent Video Promosi -->
+                                <li class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-4 transition-all duration-300 cursor-pointer flex items-center justify-between group"
+                                    onclick="openEditorTalentModal()">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-lg bg-brand-blue/20 flex items-center justify-center text-brand-blue">
+                                            <i class="fa-solid fa-video text-sm animate-pulse"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-white text-sm group-hover:text-brand-blue transition-colors">Editor &amp; Talent Video Promosi</p>
+                                            <p class="text-[11px] text-slate-400">Klik untuk memutar langsung rujukan video talent/editor</p>
+                                        </div>
+                                    </div>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-brand-blue transition-colors pr-2"></i>
+                                </li>
+
+                                <!-- Bullet 3: Designer issue update -->
+                                <li class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-4 transition-all duration-300 cursor-pointer flex items-center justify-between group"
+                                    onclick="openDesignerModal()">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-lg bg-lavender/20 flex items-center justify-center text-lavender-dusty">
+                                            <i class="fa-solid fa-palette text-sm"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-white text-sm group-hover:text-lavender-dusty transition-colors">Designer issue update</p>
+                                            <p class="text-[11px] text-slate-400">Klik untuk melihat contoh desain rilis terbaru Elsafar</p>
+                                        </div>
+                                    </div>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-lavender-dusty transition-colors pr-2"></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Professional 2: Host Live & Admin Toko Baju -->
+                    <div class="relative group">
+                        <div class="absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-lavender border-4 border-brand-darkNavy group-hover:scale-125 transition-transform duration-300 shadow-[0_0_10px_rgba(179,157,219,0.8)]"></div>
+                        
+                        <div class="glass-card p-6 md:p-8 rounded-2xl border border-white/5 hover:border-lavender/30 transition-all duration-300">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+                                <div>
+                                    <span class="text-[9px] uppercase font-bold bg-lavender/10 text-lavender-light px-2.5 py-1 rounded-full border border-lavender/20 inline-block mb-2">Profesional</span>
+                                    <h3 class="text-xl font-bold text-white">Host Live &amp; Admin Toko Baju</h3>
+                                    <p class="text-xs text-slate-400 font-medium">Ritel Fashion &amp; Pakaian Kasual E-Commerce</p>
+                                </div>
+                                <span class="text-xs font-semibold text-lavender-light bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-xl self-start md:self-auto">
+                                    2024 - 2025
+                                </span>
+                            </div>
+                            <ul class="space-y-2.5 text-sm text-slate-300 pl-5 list-disc list-outside marker:text-lavender-dusty leading-relaxed font-light">
+                                <li>Melakukan siaran langsung (live streaming) secara interaktif di platform digital TikTok dan Shopee Live, mempromosikan katalog busana, menjelaskan detail tekstur bahan, serta memberikan rekomendasi padu padan (mix &amp; match) yang menarik minat audiens.</li>
+                                <li>Mengaktifkan strategi komunikasi persuasif saat berinteraksi langsung dengan penonton secara real-time untuk membangun urgensi pembelian dan mendorong tingkat konversi *checkout* keranjang kuning secara maksimal.</li>
+                                <li>Menjalankan fungsi administrator toko ritel, melayani tanggapan calon pelanggan (chat), mengonfirmasi pesanan masuk, serta mengontrol pembukuan harian transaksi toko secara berkala.</li>
+                                <li>Mengelola koordinasi inventarisasi stok gudang baju, memperbarui data katalog etalase toko digital, serta mengurus kesiapan pengemasan barang bersama tim logistik ekspedisi.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Professional 3: Administrative Assistant in Manufacturing Company -->
+                    <div class="relative group">
+                        <div class="absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-brand-blue border-4 border-brand-darkNavy group-hover:scale-125 transition-transform duration-300 shadow-[0_0_10px_rgba(79,195,247,0.8)]"></div>
+                        
+                        <div class="glass-card p-6 md:p-8 rounded-2xl border border-white/5 hover:border-brand-blue/30 transition-all duration-300">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+                                <div>
+                                    <span class="text-[9px] uppercase font-bold bg-brand-blue/10 text-brand-blue px-2.5 py-1 rounded-full border border-brand-blue/20 inline-block mb-2">Profesional</span>
+                                    <h3 class="text-xl font-bold text-white">Administrative Assistant</h3>
+                                    <p class="text-xs text-slate-400 font-medium">Perusahaan Manufaktur Suku Cadang Logam &amp; Fabrikasi Presisi (Teknik Mesin)</p>
+                                </div>
+                                <span class="text-xs font-semibold text-lavender-light bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-xl self-start md:self-auto">
+                                    Sesi Magang 2024
+                                </span>
+                            </div>
+                            <ul class="space-y-2.5 text-sm text-slate-300 pl-5 list-disc list-outside marker:text-brand-blue leading-relaxed font-light">
+                                <li>Mengelola dan mengatur dokumen arsip legalitas serta perizinan perusahaan secara rapi dan digital via database awan (Cloud Database).</li>
+                                <li>Menyusun dokumen Surat Jalan aktivitas harian berdasarkan jadwal pengiriman (delivery schedule) yang dikirim ke berbagai pelanggan korporat, sekaligus mengarsipkannya secara berkala setiap bulan.</li>
+                                <li>Mengelola pencatatan dana kas kecil (petty cash) operasional dan merapikan inventarisasi aset peralatan kantor dengan akurasi tinggi.</li>
+                                <li>Menyusun serta merumuskan target produksi harian (daily production planning) untuk memaksimalkan efisiensi operasional mesin-mesin fabrikasi besar.</li>
+                                <li>Melakukan pengawasan fisik dan kontrol kualitas (quality checking) untuk mendeteksi serta memisahkan produk cacat (reject) guna menjaga standar kualitas suku cadang.</li>
+                                <li>Menyusun serta memproses laporan invoice bulanan untuk dikirimkan kepada para pelanggan sesuai histori transaksi pengiriman yang sah.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- CONTAINER 2: PENGALAMAN ORGANISASI (Hidden by default) -->
+                <div id="experience-organisasi-container" class="space-y-12 hidden transition-all duration-500">
+                    
+                    <!-- Organization 1: Sekretaris Santri Pondok Pesantren Majmaul Anhar -->
+                    <div class="relative group">
+                        <div class="absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-lavender-dusty border-4 border-brand-darkNavy group-hover:scale-125 transition-transform duration-300 shadow-[0_0_10px_rgba(179,157,187,0.8)]"></div>
+                        
+                        <div class="glass-card p-6 md:p-8 rounded-2xl border border-white/5 hover:border-lavender-dusty/30 transition-all duration-300">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+                                <div>
+                                    <span class="text-[9px] uppercase font-bold bg-lavender/10 text-lavender-dusty px-2.5 py-1 rounded-full border border-lavender-dusty/20 inline-block mb-2">Organisasi</span>
+                                    <h3 class="text-xl font-bold text-white">Sekretaris Santri</h3>
+                                    <p class="text-xs text-slate-400 font-medium">Pondok Pesantren Majmaul Anhar</p>
+                                </div>
+                                <span class="text-xs font-semibold text-lavender-light bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-xl self-start md:self-auto">
+                                    Periode 2022 - 2024
+                                </span>
+                            </div>
+                            <ul class="space-y-2.5 text-sm text-slate-300 pl-5 list-disc list-outside marker:text-lavender-dusty leading-relaxed font-light">
+                                <li>Mengelola dan menertibkan sistem surat-menyurat resmi pondok pesantren, pencatatan data keanggotaan santri, serta pengarsipan berkas administratif secara aman dan teratur.</li>
+                                <li>Menyusun rancangan program kerja tahunan serta laporan pertanggungjawaban (LPJ) kegiatan keagamaan berskala besar di lingkungan pesantren.</li>
+                                <li>Mengoordinasikan alur komunikasi internal pengurus santri dengan pimpinan pondok guna menyelaraskan agenda harian pesantren.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Organization 2: OSIS MAN 1 KAB. BOGOR - Bidang Kewirausahaan -->
+                    <div class="relative group">
+                        <div class="absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-purple-400 border-4 border-brand-darkNavy group-hover:scale-125 transition-transform duration-300 shadow-[0_0_10px_rgba(168,85,247,0.8)]"></div>
+                        
+                        <div class="glass-card p-6 md:p-8 rounded-2xl border border-white/5 hover:border-purple-400/30 transition-all duration-300">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+                                <div>
+                                    <span class="text-[9px] uppercase font-bold bg-purple-500/10 text-purple-300 px-2.5 py-1 rounded-full border border-purple-500/20 inline-block mb-2">Organisasi</span>
+                                    <h3 class="text-xl font-bold text-white">OSIS Bidang Kewirausahaan</h3>
+                                    <p class="text-xs text-slate-400 font-medium">MAN 1 Kabupaten Bogor</p>
+                                </div>
+                                <span class="text-xs font-semibold text-lavender-light bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-xl self-start md:self-auto">
+                                    Periode 2022 - 2024
+                                </span>
+                            </div>
+                            <ul class="space-y-2.5 text-sm text-slate-300 pl-5 list-disc list-outside marker:text-purple-300 leading-relaxed font-light">
+                                <li>Menginisiasi dan mengelola bazar kreativitas siswa sekolah serta program inovatif kewirausahaan mandiri untuk menambah pemasukan kas OSIS.</li>
+                                <li>Mempelajari dasar-dasar manajemen penjualan, mengontrol inventaris produk ritel yang diproduksi oleh siswa, serta menyusun laporan laba rugi berkala.</li>
+                                <li>Membangun kerja sama strategis dengan mitra usaha mikro eksternal guna menyukseskan gelaran kegiatan tahunan sekolah.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Organization 3: Himpunan Mahasiswa Islam (HMI) -->
+                    <div class="relative group">
+                        <div class="absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-emerald-400 border-4 border-brand-darkNavy group-hover:scale-125 transition-transform duration-300 shadow-[0_0_10px_rgba(16,185,129,0.8)]"></div>
+                        
+                        <div class="glass-card p-6 md:p-8 rounded-2xl border border-white/5 hover:border-emerald-400/30 transition-all duration-300">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+                                <div>
+                                    <span class="text-[9px] uppercase font-bold bg-emerald-500/10 text-emerald-300 px-2.5 py-1 rounded-full border border-emerald-500/20 inline-block mb-2">Organisasi</span>
+                                    <h3 class="text-xl font-bold text-white">Himpunan Mahasiswa Islam</h3>
+                                    <p class="text-xs text-slate-400 font-medium">Cabang Kabupaten Bandung</p>
+                                </div>
+                                <span class="text-xs font-semibold text-lavender-light bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-xl self-start md:self-auto">
+                                    Kader Aktif
+                                </span>
+                            </div>
+                            <ul class="space-y-2.5 text-sm text-slate-300 pl-5 list-disc list-outside marker:text-emerald-400 leading-relaxed font-light">
+                                <li>Berpartisipasi aktif dalam forum kajian kepemimpinan akademis, riset sosial kemasyarakatan, serta kegiatan pengabdian masyarakat di tingkat cabang.</li>
+                                <li>Melatih teknik komunikasi publik (*public speaking*), manajemen organisasi, pemecahan masalah kritis, serta negosiasi interpersonal lintas organisasi.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Organization 4: HIMA UIN SUNAN GUNUNG DJATI -->
+                    <div class="relative group">
+                        <div class="absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-brand-pink border-4 border-brand-darkNavy group-hover:scale-125 transition-transform duration-300 shadow-[0_0_10px_rgba(244,143,177,0.8)]"></div>
+                        
+                        <div class="glass-card p-6 md:p-8 rounded-2xl border border-white/5 hover:border-brand-pink/30 transition-all duration-300">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+                                <div>
+                                    <span class="text-[9px] uppercase font-bold bg-brand-pink/10 text-brand-pink px-2.5 py-1 rounded-full border border-brand-pink/20 inline-block mb-2">Organisasi</span>
+                                    <h3 class="text-xl font-bold text-white">Himpunan Mahasiswa (HIMA) MHU</h3>
+                                    <p class="text-xs text-slate-400 font-medium">Program Studi Manajemen Haji dan Umrah UIN Sunan Gunung Djati</p>
+                                </div>
+                                <span class="text-xs font-semibold text-lavender-light bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-xl self-start md:self-auto">
+                                    Mahasiswa Aktif
+                                </span>
+                            </div>
+                            <ul class="space-y-2.5 text-sm text-slate-300 pl-5 list-disc list-outside marker:text-brand-pink leading-relaxed font-light">
+                                <li>Terlibat langsung dalam koordinasi perancangan desain materi publikasi program studi, pembuatan pamflet kegiatan himpunan, serta penyusunan proposal program kerja.</li>
+                                <li>Menjadi tim fasilitator operasional pada berbagai agenda keagamaan, seminar nasional, serta orientasi pengenalan prodi baru (Miqot).</li>
+                                <li>Membangun jejaring komunikasi yang solid antar-mahasiswa lintas angkatan di lingkup internal dan eksternal kampus.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontak" class="py-24 bg-brand-darkNavy relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(149,117,205,0.08),transparent_50%)]"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="glassmorphism rounded-3xl border border-white/10 p-8 md:p-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Contact Details -->
+                <div class="lg:col-span-5 space-y-6">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Mari Berkolaborasi &amp; Berkarya Bersama</h2>
+                    <p class="text-sm text-slate-300 leading-relaxed font-light">
+                        Saya selalu antusias menyambut peluang magang, tawaran pekerjaan penuh waktu, maupun kolaborasi kreatif lainnya. Silakan hubungi saya melalui form di samping, atau hubungi pusat kontak sosial saya di bawah.
+                    </p>
+                    <div class="space-y-4 pt-4 text-sm text-slate-300">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-brand-pink border border-white/10"><i class="fa-solid fa-location-dot"></i></div>
+                            <span>Serang Baru, Kab. Bekasi, Jawa Barat</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-brand-blue border border-white/10"><i class="fa-solid fa-envelope"></i></div>
+                            <a href="mailto:anjaninaisya6@gmail.com" class="hover:underline hover:text-brand-blue transition-colors">anjaninaisya6@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <!-- Connect Cards Grid -->
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <!-- WhatsApp Card -->
+                        <a href="https://wa.me/6282112886401" target="_blank" class="p-4 rounded-xl bg-[#25D366]/5 border border-[#25D366]/20 hover:bg-[#25D366]/10 transition-all flex flex-col justify-between h-32 group">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xl text-[#25D366]"><i class="fa-brands fa-whatsapp"></i></span>
+                                <span class="text-[10px] text-slate-500 group-hover:text-white transition-colors"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">WhatsApp</p>
+                                <p class="text-xs font-bold text-white">0821-1288-6401</p>
+                            </div>
+                        </a>
+                        <!-- Instagram Card -->
+                        <a href="https://instagram.com/anjniiinu" target="_blank" class="p-4 rounded-xl bg-gradient-to-tr from-[#f9ce34]/5 via-[#ee2a7b]/5 to-[#6228d7]/5 border border-[#ee2a7b]/20 hover:opacity-90 transition-all flex flex-col justify-between h-32 group">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xl text-brand-pink"><i class="fa-brands fa-instagram"></i></span>
+                                <span class="text-[10px] text-slate-500 group-hover:text-white transition-colors"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Instagram</p>
+                                <p class="text-xs font-bold text-white">@anjniiinu</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Live Client Message Box -->
+                <div class="lg:col-span-7 bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 space-y-6 w-full">
+                    <h3 class="text-lg font-bold text-white">Kirim Pesan Langsung</h3>
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div>
+                            <label for="contact-name" class="block text-xs font-semibold text-slate-300 uppercase tracking-wide mb-1">Nama Lengkap</label>
+                            <input type="text" id="contact-name" name="name" required placeholder="Masukkan nama Anda..." 
+                                   class="w-full bg-brand-darkNavy/80 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-pink transition-colors">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="contact-email" class="block text-xs font-semibold text-slate-300 uppercase tracking-wide mb-1">Alamat Email</label>
+                                <input type="email" id="contact-email" name="email" required placeholder="nama@email.com" 
+                                       class="w-full bg-brand-darkNavy/80 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-pink transition-colors">
+                            </div>
+                            <div>
+                                <label for="contact-phone" class="block text-xs font-semibold text-slate-300 uppercase tracking-wide mb-1">Nomor WhatsApp</label>
+                                <input type="tel" id="contact-phone" name="phone" placeholder="Contoh: 0812xxxxx" 
+                                       class="w-full bg-brand-darkNavy/80 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-pink transition-colors">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="contact-message" class="block text-xs font-semibold text-slate-300 uppercase tracking-wide mb-1">Pesan Anda</label>
+                            <textarea id="contact-message" name="message" rows="4" required placeholder="Tulis rincian kerja sama atau pesan Anda di sini..." 
+                                      class="w-full bg-brand-darkNavy/80 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-pink transition-colors"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-brand-pink to-lavender-dark text-brand-darkNavy hover:scale-[1.01] active:scale-95 transition-all py-3.5 rounded-xl font-bold text-sm tracking-wide flex items-center justify-center gap-2 shadow-lg shadow-brand-pink/10">
+                            <i class="fa-solid fa-paper-plane"></i> Kirim Pesan Sekarang
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL 1: KONTEN PLANNER MODAL -->
+    <div id="konten-planner-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-brand-darkNavy/90 backdrop-blur-md hidden transition-opacity duration-300 opacity-0">
+        <div class="bg-brand-navy border border-white/10 w-full max-w-4xl rounded-3xl p-6 md:p-8 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('konten-planner-modal')" class="absolute top-6 right-6 text-slate-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-pink rounded-full p-2 z-10" aria-label="Close Modal">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            
+            <div class="space-y-1">
+                <span class="text-[10px] uppercase font-bold tracking-widest text-brand-pink bg-brand-pink/10 px-3 py-1 rounded-full">Internship Elsafar</span>
+                <h3 class="text-2xl font-extrabold text-white">Kalender Konten Planner Elsafar</h3>
+            </div>
+            
+            <hr class="border-white/5">
+            
+            <!-- Document Image View -->
+            <div class="p-2 bg-brand-darkNavy/60 rounded-2xl overflow-hidden border border-white/5">
+                <img src="Konten Planner Elsafar.jpeg" 
+                     alt="Konten Planner Elsafar" 
+                     onclick="openLightbox('Konten Planner Elsafar.jpeg', 'Jadwal Konten Planner Elsafar')"
+                     onerror="this.src='https://placehold.co/1200x800/1a1a37/ffffff?text=Konten+Planner+Elsafar'"
+                     class="w-full h-auto max-h-[50vh] object-contain rounded-xl hover:scale-[1.01] transition-transform duration-300 cursor-zoom-in" />
+            </div>
+            
+            <div class="flex justify-end items-center pt-2">
+                <button onclick="closeModal('konten-planner-modal')" class="bg-gradient-to-r from-brand-pink to-lavender-dark text-brand-darkNavy font-bold px-6 py-2.5 rounded-xl text-xs transition-all hover:scale-105">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: EDITOR & TALENT VIDEO PROMOSI MODAL (Names/Labels removed) -->
+    <div id="editor-talent-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-brand-darkNavy/90 backdrop-blur-md hidden transition-opacity duration-300 opacity-0">
+        <div class="bg-brand-navy border border-white/10 w-full max-w-5xl rounded-3xl p-6 md:p-8 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('editor-talent-modal')" class="absolute top-6 right-6 text-slate-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-blue rounded-full p-2 z-10" aria-label="Close Modal">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            
+            <div class="space-y-1">
+                <span class="text-[10px] uppercase font-bold tracking-widest text-brand-blue bg-brand-blue/10 px-3 py-1 rounded-full">Karya Konten Kreatif</span>
+                <h3 class="text-2xl font-extrabold text-white">Video Promosi &amp; Editing</h3>
+            </div>
+            
+            <hr class="border-white/5">
+            
+            <!-- Talent and Editor Grid (Titled labels removed) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Video Item 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-white/5 hover:border-brand-blue/30 flex flex-col justify-between transition-all group">
+                    <div class="p-2 h-64 bg-brand-darkNavy/40 overflow-hidden relative">
+                        <img src="Talent Elsafar 1.jpeg" 
+                             alt="Talent Video 1"
+                             onclick="openLightbox('Talent Elsafar 1.jpeg', 'Video Promosi 1')"
+                             onerror="this.src='https://placehold.co/400x500/1a1a37/ffffff?text=Talent+Elsafar+1'"
+                             class="w-full h-full object-cover rounded-xl cursor-zoom-in group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <div class="p-4">
+                        <a href="https://vt.tiktok.com/ZSQtskxVa/" target="_blank" class="w-full py-2.5 bg-brand-blue/10 hover:bg-brand-blue text-brand-blue hover:text-brand-darkNavy border border-brand-blue/20 hover:border-transparent rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-tiktok text-sm"></i> Buka Video <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Video Item 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-white/5 hover:border-brand-blue/30 flex flex-col justify-between transition-all group">
+                    <div class="p-2 h-64 bg-brand-darkNavy/40 overflow-hidden relative">
+                        <img src="Talent elsafar 2.jpeg" 
+                             alt="Talent Video 2"
+                             onclick="openLightbox('Talent elsafar 2.jpeg', 'Video Promosi 2')"
+                             onerror="this.src='https://placehold.co/400x500/1a1a37/ffffff?text=Talent+Elsafar+2'"
+                             class="w-full h-full object-cover rounded-xl cursor-zoom-in group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <div class="p-4">
+                        <a href="https://vt.tiktok.com/ZSQtsxDB6/" target="_blank" class="w-full py-2.5 bg-brand-blue/10 hover:bg-brand-blue text-brand-blue hover:text-brand-darkNavy border border-brand-blue/20 hover:border-transparent rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-tiktok text-sm"></i> Buka Video <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Video Item 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-white/5 hover:border-brand-blue/30 flex flex-col justify-between transition-all group">
+                    <div class="p-2 h-64 bg-brand-darkNavy/40 overflow-hidden relative">
+                        <img src="Editor Elsafar 1.jpeg" 
+                             alt="Editor Video 1"
+                             onclick="openLightbox('Editor Elsafar 1.jpeg', 'Video Promosi 3')"
+                             onerror="this.src='https://placehold.co/400x500/1a1a37/ffffff?text=Editor+Elsafar+1'"
+                             class="w-full h-full object-cover rounded-xl cursor-zoom-in group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <div class="p-4">
+                        <a href="https://vt.tiktok.com/ZSQtsMadG/" target="_blank" class="w-full py-2.5 bg-brand-blue/10 hover:bg-brand-blue text-brand-blue hover:text-brand-darkNavy border border-brand-blue/20 hover:border-transparent rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-tiktok text-sm"></i> Buka Video <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Video Item 4 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-white/5 hover:border-brand-blue/30 flex flex-col justify-between transition-all group">
+                    <div class="p-2 h-64 bg-brand-darkNavy/40 overflow-hidden relative">
+                        <img src="Editor Elsafar 2.jpeg" 
+                             alt="Editor Video 2"
+                             onclick="openLightbox('Editor Elsafar 2.jpeg', 'Video Promosi 4')"
+                             onerror="this.src='https://placehold.co/400x500/1a1a37/ffffff?text=Editor+Elsafar+2'"
+                             class="w-full h-full object-cover rounded-xl cursor-zoom-in group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <div class="p-4">
+                        <a href="https://www.instagram.com/reel/DMCvpXrTtH0/?igsh=MWM3cTlpMTN4Y2g3MQ==" target="_blank" class="w-full py-2.5 bg-brand-pink/10 hover:bg-brand-pink text-brand-pink hover:text-brand-darkNavy border border-brand-pink/20 hover:border-transparent rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-instagram text-sm"></i> Buka Video <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Extensibility Text -->
+            <div class="text-center bg-white/5 border border-white/5 rounded-2xl p-4 text-xs text-slate-400">
+                <i class="fa-solid fa-ellipsis mr-2 text-brand-blue animate-pulse"></i> Karya-karya kreatif lainnya...
+            </div>
+            
+            <div class="flex justify-end pt-2">
+                <button onclick="closeModal('editor-talent-modal')" class="bg-gradient-to-r from-brand-pink to-lavender-dark text-brand-darkNavy font-bold px-6 py-2.5 rounded-xl text-xs transition-all hover:scale-105">
+                    Tutup Galeri Video
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 3: DESIGNER ISSUE UPDATE MODAL -->
+    <div id="designer-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-brand-darkNavy/90 backdrop-blur-md hidden transition-opacity duration-300 opacity-0">
+        <div class="bg-brand-navy border border-white/10 w-full max-w-4xl rounded-3xl p-6 md:p-8 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('designer-modal')" class="absolute top-6 right-6 text-slate-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-lavender-dusty rounded-full p-2 z-10" aria-label="Close Modal">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            
+            <div class="space-y-1">
+                <span class="text-[10px] uppercase font-bold tracking-widest text-lavender-dusty bg-lavender/10 px-3 py-1 rounded-full">Grafis &amp; Publikasi</span>
+                <h3 class="text-2xl font-extrabold text-white">Designer Issue Update</h3>
+            </div>
+            
+            <hr class="border-white/5">
+            
+            <div class="p-2 bg-brand-darkNavy/60 rounded-2xl overflow-hidden border border-white/5">
+                <img src="Postingan Travel Elsafar Intern_2.jpeg" 
+                     alt="Postingan Travel Elsafar" 
+                     onclick="openLightbox('Postingan Travel Elsafar Intern_2.jpeg', 'Aset Desain Designer Issue Update Elsafar')"
+                     onerror="this.src='https://placehold.co/1200x800/1a1a37/ffffff?text=Postingan+Elsafar+Intern_2'"
+                     class="w-full h-auto max-h-[50vh] object-contain rounded-xl hover:scale-[1.01] transition-transform duration-300 cursor-zoom-in" />
+            </div>
+            
+            <div class="flex justify-end pt-2">
+                <button onclick="closeModal('designer-modal')" class="bg-gradient-to-r from-brand-pink to-lavender-dark text-brand-darkNavy font-bold px-6 py-2.5 rounded-xl text-xs transition-all hover:scale-105">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 4: CANVA PORTFOLIO MODAL (Names/Labels removed) -->
+    <div id="canva-portfolio-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-brand-darkNavy/90 backdrop-blur-md hidden transition-opacity duration-300 opacity-0">
+        <div class="bg-brand-navy border border-white/10 w-full max-w-6xl rounded-3xl p-6 md:p-8 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <!-- Close Button -->
+            <button onclick="closeCanvaPortfolioModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-pink rounded-full p-2 z-10" aria-label="Close Modal">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            
+            <div class="space-y-1">
+                <span class="text-[10px] uppercase font-bold tracking-widest text-brand-pink bg-brand-pink/10 px-3 py-1 rounded-full">Kreatif &amp; Desain Grafis</span>
+                <h3 class="text-2xl font-extrabold text-white">Kumpulan Bukti Desain Canva</h3>
+            </div>
+            
+            <hr class="border-white/5">
+            
+            <!-- Designs Display Grid (No text labels, just clean visual + Instagram Link button) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Design Card 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between border border-white/5 hover:border-brand-pink/30 transition-all group">
+                    <div class="grid grid-cols-2 gap-1 p-2 bg-brand-darkNavy/40 rounded-t-xl h-64 overflow-hidden relative">
+                        <img src="Postingan Milad 6.O.jpeg" 
+                             alt="Desain Milad" 
+                             onclick="openLightbox('Postingan Milad 6.O.jpeg', 'Postingan Milad 6.0')"
+                             onerror="this.src='https://placehold.co/400x500/1a1a37/ffffff?text=Postingan+Milad+6.0'"
+                             class="w-full h-full object-cover object-top rounded-lg hover:scale-105 transition-transform duration-300 cursor-zoom-in" />
+                        <img src="Design proposal miqot 6.O.jpeg" 
+                             alt="Desain Proposal" 
+                             onclick="openLightbox('Design proposal miqot 6.O.jpeg', 'Design Proposal Miqot 6.0')"
+                             onerror="this.src='https://placehold.co/400x500/1a1a37/ffffff?text=Proposal+Miqot+6.0'"
+                             class="w-full h-full object-cover object-top rounded-lg hover:scale-105 transition-transform duration-300 cursor-zoom-in" />
+                    </div>
+                    <div class="p-4">
+                        <a href="https://instagram.com/miladmhu_6.0" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-brand-pink/10 to-lavender-dark/10 hover:from-brand-pink hover:to-lavender-dark text-brand-pink hover:text-brand-darkNavy border border-brand-pink/20 hover:border-transparent rounded-xl text-[11px] font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm">
+                            <i class="fa-brands fa-instagram text-sm"></i> Kunjungi @miladmhu_6.0
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Design Card 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between border border-white/5 hover:border-brand-pink/30 transition-all group">
+                    <div class="p-2 h-64 bg-brand-darkNavy/40 rounded-t-xl overflow-hidden">
+                        <img src="Design Instagram Angkatan.jpeg" 
+                             alt="Desain Instagram Angkatan" 
+                             onclick="openLightbox('Design Instagram Angkatan.jpeg', 'Design Instagram Angkatan')"
+                             onerror="this.src='https://placehold.co/400x500/1a1a37/ffffff?text=Design+Instagram+Angkatan'"
+                             class="w-full h-full object-cover object-top rounded-xl hover:scale-105 transition-transform duration-300 cursor-zoom-in" />
+                    </div>
+                    <div class="p-4">
+                        <a href="https://instagram.com/mhu2024_" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-brand-pink/10 to-lavender-dark/10 hover:from-brand-pink hover:to-lavender-dark text-brand-pink hover:text-brand-darkNavy border border-brand-pink/20 hover:border-transparent rounded-xl text-[11px] font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm">
+                            <i class="fa-brands fa-instagram text-sm"></i> Kunjungi @mhu2024_
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Design Card 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between border border-white/5 hover:border-brand-pink/30 transition-all group">
+                    <div class="p-2 h-64 bg-brand-darkNavy/40 rounded-t-xl overflow-hidden">
+                        <img src="Postingan HMPS MHU.jpeg" 
+                             alt="Desain HMPS MHU" 
+                             onclick="openLightbox('Postingan HMPS MHU.jpeg', 'Postingan HMPS MHU')"
+                             onerror="this.src='https://placehold.co/400x500/1a1a37/ffffff?text=Postingan+HMPS+MHU'"
+                             class="w-full h-full object-cover object-top rounded-xl hover:scale-105 transition-transform duration-300 cursor-zoom-in" />
+                    </div>
+                    <div class="p-4">
+                        <a href="https://instagram.com/mhuuinbdg" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-brand-pink/10 to-lavender-dark/10 hover:from-brand-pink hover:to-lavender-dark text-brand-pink hover:text-brand-darkNavy border border-brand-pink/20 hover:border-transparent rounded-xl text-[11px] font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm">
+                            <i class="fa-brands fa-instagram text-sm"></i> Kunjungi @mhuuinbdg
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Design Card 4 -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between border border-white/5 hover:border-brand-pink/30 transition-all group">
+                    <div class="p-2 h-64 bg-brand-darkNavy/40 rounded-t-xl overflow-hidden">
+                        <img src="Postingan Travel Elsafar Intern.jpeg" 
+                             alt="Desain Travel Elsafar" 
+                             onclick="openLightbox('Postingan Travel Elsafar Intern.jpeg', 'Postingan Travel Elsafar Intern')"
+                             onerror="this.src='https://placehold.co/400x500/1a1a37/ffffff?text=Postingan+Elsafar+Travel'"
+                             class="w-full h-full object-cover object-top rounded-xl hover:scale-105 transition-transform duration-300 cursor-zoom-in" />
+                    </div>
+                    <div class="p-4">
+                        <a href="https://instagram.com/elsafar.umrahpelataran" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-brand-pink/10 to-lavender-dark/10 hover:from-brand-pink hover:to-lavender-dark text-brand-pink hover:text-brand-darkNavy border border-brand-pink/20 hover:border-transparent rounded-xl text-[11px] font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm">
+                            <i class="fa-brands fa-instagram text-sm"></i> Kunjungi @elsafar.umrahpelataran
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="pt-2 flex justify-end">
+                <button onclick="closeCanvaPortfolioModal()" class="bg-gradient-to-r from-brand-pink to-lavender-dark text-brand-darkNavy font-bold px-6 py-2.5 rounded-xl text-xs transition-all hover:scale-105">
+                    Tutup Portofolio Desain
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 5: MICROSOFT EXCEL VERIFICATION GALLERY -->
+    <div id="excel-portfolio-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-brand-darkNavy/90 backdrop-blur-md hidden transition-opacity duration-300 opacity-0">
+        <div class="bg-brand-navy border border-white/10 w-full max-w-5xl rounded-3xl p-6 md:p-8 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeExcelPortfolioModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-400 rounded-full p-2 z-10" aria-label="Close Modal">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            
+            <div class="space-y-1">
+                <span class="text-[10px] uppercase font-bold tracking-widest text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded-full">Keahlian &amp; Analisis</span>
+                <h3 class="text-2xl font-extrabold text-white">Bukti Implementasi Microsoft Excel</h3>
+            </div>
+            
+            <hr class="border-white/5">
+            
+            <!-- Grid Layout of Screenshots (excel 1 & excel 2 without name labels) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Screenshot 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden p-3 border border-white/5 flex flex-col justify-between group">
+                    <div class="h-80 bg-brand-darkNavy/40 overflow-hidden relative rounded-xl">
+                        <img src="excel 1.jpeg" 
+                             alt="Bukti Keahlian Excel 1" 
+                             onclick="openLightbox('excel 1.jpeg', 'Neraca Lajur & Pelaporan Keuangan')"
+                             onerror="this.src='https://placehold.co/800x600/1a1a37/ffffff?text=Excel+Accounting+Neraca'"
+                             class="w-full h-full object-cover object-top hover:scale-105 transition-all duration-300 cursor-zoom-in" />
+                    </div>
+                </div>
+
+                <!-- Screenshot 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden p-3 border border-white/5 flex flex-col justify-between group">
+                    <div class="h-80 bg-brand-darkNavy/40 overflow-hidden relative rounded-xl">
+                        <img src="excel 2.png" 
+                             alt="Bukti Keahlian Excel 2" 
+                             onclick="openLightbox('excel 2.png', 'Sistem Tagihan Invoice Otomatis')"
+                             onerror="this.src='https://placehold.co/800x600/1a1a37/ffffff?text=Excel+Invoice+System'"
+                             class="w-full h-full object-cover object-top hover:scale-105 transition-all duration-300 cursor-zoom-in" />
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-4 flex justify-end">
+                <button onclick="closeExcelPortfolioModal()" class="bg-emerald-500 text-brand-darkNavy font-bold px-6 py-2.5 rounded-xl text-xs transition-all hover:scale-105">
+                    Tutup Portofolio Excel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 6: PUBLIC SPEAKING RAW PHOTO GALLERY (Labels removed) -->
+    <div id="public-speaking-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-brand-darkNavy/90 backdrop-blur-md hidden transition-opacity duration-300 opacity-0">
+        <div class="bg-brand-navy border border-white/10 w-full max-w-5xl rounded-3xl p-6 md:p-8 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closePublicSpeakingModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-blue rounded-full p-2 z-10" aria-label="Close Modal">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            
+            <div class="space-y-1">
+                <span class="text-[10px] uppercase font-bold tracking-widest text-brand-blue bg-brand-blue/10 px-3 py-1 rounded-full">Komunikasi Publik &amp; MC</span>
+                <h3 class="text-2xl font-extrabold text-white">Galeri Kegiatan Public Speaking</h3>
+            </div>
+            
+            <hr class="border-white/5">
+            
+            <!-- Pure Visual Photo Grid without filenames, titles, labels, or captions verbatim -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Photo 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden p-2 border border-white/5 group hover:border-brand-blue/30 transition-all">
+                    <div class="h-80 bg-brand-darkNavy/40 overflow-hidden rounded-xl">
+                        <img src="Public Speaking 1.jpeg" 
+                             alt="Public Speaking Event 1" 
+                             onclick="openLightbox('Public Speaking 1.jpeg', 'Public Speaking')"
+                             onerror="this.src='https://placehold.co/400x600/1a1a37/ffffff?text=Public+Speaking+1'"
+                             class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300 cursor-zoom-in" />
+                    </div>
+                </div>
+
+                <!-- Photo 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden p-2 border border-white/5 group hover:border-brand-blue/30 transition-all">
+                    <div class="h-80 bg-brand-darkNavy/40 overflow-hidden rounded-xl">
+                        <img src="public speaking 2.jpeg" 
+                             alt="Public Speaking Event 2" 
+                             onclick="openLightbox('public speaking 2.jpeg', 'Public Speaking')"
+                             onerror="this.src='https://placehold.co/400x600/1a1a37/ffffff?text=Public+Speaking+2'"
+                             class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300 cursor-zoom-in" />
+                    </div>
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden p-2 border border-white/5 group hover:border-brand-blue/30 transition-all">
+                    <div class="h-80 bg-brand-darkNavy/40 overflow-hidden rounded-xl">
+                        <img src="Public  Speaking 3.jpeg" 
+                             alt="Public Speaking Event 3" 
+                             onclick="openLightbox('Public  Speaking 3.jpeg', 'Public Speaking')"
+                             onerror="this.src='https://placehold.co/400x600/1a1a37/ffffff?text=Public+Speaking+3'"
+                             class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300 cursor-zoom-in" />
+                    </div>
+                </div>
+
+                <!-- Photo 4 -->
+                <div class="glass-card rounded-2xl overflow-hidden p-2 border border-white/5 group hover:border-brand-blue/30 transition-all">
+                    <div class="h-80 bg-brand-darkNavy/40 overflow-hidden rounded-xl">
+                        <img src="Public Speaking 4.jpeg" 
+                             alt="Public Speaking Event 4" 
+                             onclick="openLightbox('Public Speaking 4.jpeg', 'Public Speaking')"
+                             onerror="this.src='https://placehold.co/400x600/1a1a37/ffffff?text=Public+Speaking+4'"
+                             class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300 cursor-zoom-in" />
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-4 flex justify-end">
+                <button onclick="closePublicSpeakingModal()" class="bg-brand-blue text-brand-darkNavy font-bold px-6 py-2.5 rounded-xl text-xs transition-all hover:scale-105">
+                    Tutup Galeri Foto
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX: Full Screen Visual Image Viewer -->
+    <div id="lightbox" class="fixed inset-0 z-[60] bg-black/95 backdrop-blur-sm hidden flex-col justify-center items-center p-4 transition-opacity duration-300 opacity-0" onclick="closeLightbox()">
+        <button class="absolute top-6 right-6 text-white hover:text-brand-pink text-3xl focus:outline-none" aria-label="Close Lightbox">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-3xl w-full flex flex-col justify-center items-center space-y-4" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="Pratinjau Desain" class="max-h-[85vh] max-w-full rounded-xl object-contain shadow-2xl border border-white/10" />
+            <p id="lightbox-caption" class="text-slate-300 font-medium text-sm text-center bg-brand-darkNavy/80 px-4 py-2 rounded-xl border border-white/5"></p>
+        </div>
+    </div>
+
+    <!-- Resume Viewer Modal (S.M Degree Removed) -->
+    <div id="resume-modal" class="fixed inset-0 z-50 flex items-center justify-center p-6 bg-brand-darkNavy/85 backdrop-blur-md hidden transition-opacity duration-300 opacity-0">
+        <div class="bg-brand-navy border border-white/15 w-full max-w-3xl rounded-3xl p-6 md:p-8 space-y-6 shadow-2xl relative max-h-[95vh] overflow-y-auto">
+            <button onclick="closeResumeModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-pink rounded-full p-2" aria-label="Close Resume Modal">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <h3 class="text-xl font-bold text-white">Pratinjau Resume Resmi</h3>
+                    <p class="text-xs text-slate-400">Anjani Naisya Utami - Curriculum Vitae</p>
+                </div>
+                <button onclick="simulateResumeDownload()" class="bg-brand-pink text-brand-darkNavy px-4 py-2 rounded-xl text-xs font-bold hover:scale-105 transition-transform flex items-center gap-2">
+                    <i class="fa-solid fa-download"></i> Unduh File PDF
+                </button>
+            </div>
+
+            <hr class="border-white/10">
+
+            <!-- Mock Sheet Resume Container -->
+            <div class="bg-slate-100 text-slate-800 p-6 md:p-8 rounded-2xl shadow-inner text-xs space-y-6 font-sans">
+                <!-- Resume Header -->
+                <div class="text-center space-y-1 pb-4 border-b border-slate-300">
+                    <h1 class="text-lg font-bold tracking-wide uppercase text-slate-900">Anjani Naisya Utami</h1>
+                    <p class="text-[10px] text-slate-600">Bekasi, Jawa Barat | <a href="mailto:anjaninaisya6@gmail.com" class="underline">anjaninaisya6@gmail.com</a> | 0821-1288-6401</p>
+                </div>
+
+                <!-- Resume Summary -->
+                <div class="space-y-1">
+                    <h2 class="font-bold uppercase text-slate-900 border-b border-slate-300 pb-0.5 text-[10px]">Ringkasan Profesional</h2>
+                    <p class="text-slate-700 leading-relaxed font-light">
+                        Mahasiswa aktif S1 Manajemen Universitas Islam Negeri Sunan Gunung Djati Bandung dengan IPK berjalan 3.70. Berpengalaman mengurus administrasi manufaktur teknik mesin, memandu siaran langsung interaktif (live host), serta menginisiasi pengelolaan kampanye digital kreatif di lingkup magang agensi. Terampil menggunakan Microsoft Office (Excel tingkat menengah), Canva, dan penulisan persuasif (copywriting).
+                    </p>
+                </div>
+
+                <!-- Resume Education -->
+                <div class="space-y-2">
+                    <h2 class="font-bold uppercase text-slate-900 border-b border-slate-300 pb-0.5 text-[10px]">Pendidikan</h2>
+                    <div class="flex justify-between font-semibold text-slate-800">
+                        <span>UIN Sunan Gunung Djati Bandung</span>
+                        <span>Bandung, Indonesia</span>
+                    </div>
+                    <div class="flex justify-between italic text-slate-600">
+                        <span>S1 Manajemen (Mahasiswa Aktif) - IPK: 3.70 / 4.00</span>
+                        <span>2022 - Sekarang</span>
+                    </div>
+                </div>
+
+                <!-- Resume Experience -->
+                <div class="space-y-3">
+                    <h2 class="font-bold uppercase text-slate-900 border-b border-slate-300 pb-0.5 text-[10px]">Pengalaman Kerja</h2>
+                    <!-- Job 1 -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between font-semibold text-slate-800">
+                            <span>Social Media Specialist Intern - Elsafar</span>
+                            <span>Juni 2025 - Agustus 2025</span>
+                        </div>
+                        <ul class="list-disc pl-4 space-y-1 text-slate-600 font-light">
+                            <li>Memproduksi konten Reels &amp; TikTok yang berfokus pada penyelesaian keluhan audiens secara kreatif.</li>
+                            <li>Mengawasi manajemen agenda konten mingguan, berkontribusi pada kenaikan engagement organikal sebanyak 14%.</li>
+                        </ul>
+                    </div>
+                    <!-- Job 2 -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between font-semibold text-slate-800">
+                            <span>Host Live Streaming &amp; Admin Toko Baju</span>
+                            <span>2024 - 2025</span>
+                        </div>
+                        <ul class="list-disc pl-4 space-y-1 text-slate-600 font-light">
+                            <li>Melakukan siaran langsung digital ritel fashion secara interaktif guna meningkatkan konversi penjualan harian produk.</li>
+                            <li>Mengelola administrasi pemesanan calon konsumen serta mengawasi ketersediaan inventaris stok etalase.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Resume Skills -->
+                <div class="space-y-1">
+                    <h2 class="font-bold uppercase text-slate-900 border-b border-slate-300 pb-0.5 text-[10px]">Keahlian</h2>
+                    <p class="text-slate-700 leading-relaxed font-light">
+                        <strong class="font-semibold text-slate-800">Aplikasi &amp; Alat:</strong> Microsoft Excel (Formula, Pivot), Microsoft Word, Google Workspace, Canva, CapCut.<br>
+                        <strong class="font-semibold text-slate-800">Bahasa:</strong> Bahasa Indonesia (Asli), Bahasa Inggris (Menengah).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll-to-Top Button -->
+    <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Kembali ke atas" class="fixed bottom-6 right-6 bg-brand-pink text-brand-darkNavy w-10 h-10 rounded-full shadow-lg z-30 flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 opacity-0 translate-y-10 pointer-events-none">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-brand-darkNavy border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-slate-500">
+            <div class="space-y-2 text-center md:text-left">
+                <p class="text-slate-300 font-bold tracking-wider">ANJANI NAISYA UTAMI</p>
+                <p>&copy; 2026 Anjani Naisya Utami. All Rights Reserved. Crafted with Lavender Aesthetics.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#tentang" class="hover:text-white transition-colors">Tentang</a>
+                <a href="#skill" class="hover:text-white transition-colors">Keahlian</a>
+                <a href="#pengalaman" class="hover:text-white transition-colors">Pengalaman</a>
+                <a href="#kontak" class="hover:text-white transition-colors">Hubungi</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Interactive Tab Switching for Experience Section (Professional vs Organization)
+        function switchExperienceTab(tabType) {
+            playTickSound();
+            
+            const btnPro = document.getElementById('tab-btn-profesional');
+            const btnOrg = document.getElementById('tab-btn-organisasi');
+            const containerPro = document.getElementById('experience-profesional-container');
+            const containerOrg = document.getElementById('experience-organisasi-container');
+
+            if (tabType === 'profesional') {
+                btnPro.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 bg-gradient-to-r from-brand-pink to-lavender-dark text-brand-darkNavy shadow-md font-bold";
+                btnOrg.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-all duration-300";
+                
+                containerPro.classList.remove('hidden');
+                containerPro.classList.add('block');
+                containerOrg.classList.remove('block');
+                containerOrg.classList.add('hidden');
+                
+                createToast('Kategori Diubah', 'Menampilkan Pengalaman Kerja Profesional Anda.', 'info');
+            } else {
+                btnOrg.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 bg-gradient-to-r from-brand-pink to-lavender-dark text-brand-darkNavy shadow-md font-bold";
+                btnPro.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-all duration-300";
+                
+                containerOrg.classList.remove('hidden');
+                containerOrg.classList.add('block');
+                containerPro.classList.remove('block');
+                containerPro.classList.add('hidden');
+                
+                createToast('Kategori Diubah', 'Menampilkan Pengalaman Kerja Organisasi Anda.', 'info');
+            }
+        }
+
+        // Standard modals controls
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            playSuccessSound();
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.add('opacity-100');
+            }, 50);
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            playTickSound();
+            modal.classList.remove('opacity-100');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Specific triggers for Intern bullet points
+        function openKontenPlannerModal() {
+            openModal('konten-planner-modal');
+        }
+
+        function openEditorTalentModal() {
+            openModal('editor-talent-modal');
+        }
+
+        function openDesignerModal() {
+            openModal('designer-modal');
+        }
+
+        // Canva Gallery Modal
+        function openCanvaPortfolioModal() {
+            openModal('canva-portfolio-modal');
+        }
+
+        function closeCanvaPortfolioModal() {
+            closeModal('canva-portfolio-modal');
+        }
+
+        // Microsoft Excel Verification Modal
+        function openExcelPortfolioModal() {
+            openModal('excel-portfolio-modal');
+        }
+
+        function closeExcelPortfolioModal() {
+            closeModal('excel-portfolio-modal');
+        }
+
+        // Public Speaking Modal
+        function openPublicSpeakingModal() {
+            openModal('public-speaking-modal');
+        }
+
+        function closePublicSpeakingModal() {
+            closeModal('public-speaking-modal');
+        }
+
+        // Lightbox Viewer
+        function openLightbox(src, caption) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            
+            playTickSound();
+            lightboxImg.src = src;
+            lightboxCaption.innerText = caption;
+            
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            setTimeout(() => {
+                lightbox.classList.add('opacity-100');
+            }, 50);
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            playTickSound();
+            lightbox.classList.remove('opacity-100');
+            setTimeout(() => {
+                lightbox.classList.remove('flex');
+                lightbox.classList.add('hidden');
+            }, 300);
+        }
+
+        // Navigation mobile menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('hamburger-icon');
+            playTickSound();
+            if (menu.classList.contains('translate-x-full')) {
+                menu.classList.remove('translate-x-full');
+                icon.className = "fa-solid fa-xmark text-2xl text-brand-pink";
+            } else {
+                menu.classList.add('translate-x-full');
+                icon.className = "fa-solid fa-bars-staggered text-2xl";
+            }
+        }
+
+        // Dynamic skills sidebar fallback tray
+        function showSkillDetail(title, desc) {
+            const tray = document.getElementById('skill-detail-tray');
+            const trayTitle = document.getElementById('skill-detail-title');
+            const trayBody = document.getElementById('skill-detail-body');
+            
+            playTickSound();
+            trayTitle.innerText = title;
+            trayBody.innerText = desc;
+            
+            tray.classList.remove('hidden');
+            tray.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Resume Viewer Modal Controls
+        function openResumeModal() {
+            openModal('resume-modal');
+        }
+
+        function closeResumeModal() {
+            closeModal('resume-modal');
+        }
+
+        function simulateResumeDownload() {
+            playSuccessSound();
+            createToast('Mengunduh Resume...', 'CV Anjani Naisya Utami sedang diunduh ke perangkat Anda.', 'success');
+        }
+
+        // Contact Form Submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('contact-name').value;
+            const email = document.getElementById('contact-email').value;
+            const message = document.getElementById('contact-message').value;
+
+            if (name && email && message) {
+                playSuccessSound();
+                createToast(
+                    'Pesan Terkirim!',
+                    `Terima kasih ${name}, pesan Anda berhasil diproses secara lokal. Kami akan menghubungi Anda di ${email}.`,
+                    'success'
+                );
+                document.getElementById('contact-form').reset();
+            } else {
+                createToast(
+                    'Gagal Mengirim',
+                    'Pastikan semua kolom yang diperlukan telah diisi dengan benar.',
+                    'error'
+                );
+            }
+        }
+
+        // Elegant Dynamic Toast
+        function createToast(title, message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            
+            toast.className = "p-4 rounded-2xl glassmorphism border shadow-xl flex items-start gap-3 w-80 translate-x-10 opacity-0 transition-all duration-300 pointer-events-auto select-none";
+            
+            let iconColor = 'text-brand-pink';
+            let iconHtml = '<i class="fa-solid fa-circle-info"></i>';
+            if (type === 'success') {
+                iconColor = 'text-emerald-400';
+                toast.classList.add('border-emerald-500/20');
+                iconHtml = '<i class="fa-solid fa-circle-check"></i>';
+            } else if (type === 'error') {
+                iconColor = 'text-rose-500';
+                toast.classList.add('border-rose-500/20');
+                iconHtml = '<i class="fa-solid fa-triangle-exclamation"></i>';
+            } else {
+                toast.classList.add('border-brand-pink/20');
+            }
+
+            toast.innerHTML = `
+                <span class="text-xl ${iconColor}">${iconHtml}</span>
+                <div class="space-y-1">
+                    <h4 class="text-xs font-bold text-white">${title}</h4>
+                    <p class="text-[11px] text-slate-300 leading-normal">${message}</p>
+                </div>
+            `;
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-x-10', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-[-10px]');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 5000);
+        }
+
+        // Back to top scrolling & header scale down
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const scrollTopBtn = document.getElementById('scroll-top-btn');
+
+            if (window.scrollY > 150) {
+                header.classList.add('bg-brand-darkNavy/90', 'shadow-xl', 'py-1');
+                header.classList.remove('h-20');
+                header.classList.add('h-16');
+                
+                scrollTopBtn.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+                scrollTopBtn.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            } else {
+                header.classList.remove('bg-brand-darkNavy/90', 'shadow-xl', 'py-1');
+                header.classList.remove('h-16');
+                header.classList.add('h-20');
+                
+                scrollTopBtn.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+                scrollTopBtn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            }
+        });
+
+        function scrollToTop() {
+            playTickSound();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Web Audio Synthesizer
+        let audioCtx = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        function playTickSound() {
+            try {
+                initAudio();
+                if (!audioCtx) return;
+                
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.05);
+                
+                gain.gain.setValueAtTime(0.02, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+                
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.06);
+            } catch(e) {}
+        }
+
+        function playSuccessSound() {
+            try {
+                initAudio();
+                if (!audioCtx) return;
+                
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); 
+                osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1); 
+                
+                gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
+                
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.35);
+            } catch(e) {}
+        }
+
+        window.onload = function() {
+            setTimeout(() => {
+                createToast('Selamat Datang!', 'Jelajahi keahlian dan rekam jejak Anjani Naisya Utami.', 'info');
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
