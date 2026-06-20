@@ -1,0 +1,2177 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPIU AS-SYIFA – Jamaah Learning Center & Digital Manasik Platform</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display (Premium/Islamic) & Plus Jakarta Sans (Modern Clean) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            50: '#fbf8eb',
+                            100: '#f5edd0',
+                            200: '#ebd8a0',
+                            300: '#debd67',
+                            400: '#d0a039',
+                            500: '#c58324', // Core Brand Gold
+                            600: '#aa651b',
+                            700: '#864718',
+                            800: '#6d3718',
+                            900: '#5c2d17',
+                            950: '#35160a',
+                            premium: '#D4AF37'
+                        },
+                        charcoal: {
+                            900: '#0A0A0A',
+                            800: '#121212',
+                            700: '#1C1C1C',
+                            600: '#282828',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Modern custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b5922d;
+        }
+        
+        /* Glassmorphism utility */
+        .glass-premium {
+            background: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFE29F 0%, #D4AF37 50%, #8A640F 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #FFE29F 0%, #D4AF37 50%, #8A640F 100%);
+        }
+
+        /* Interactive Timeline glow */
+        .timeline-glow::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, #D4AF37, transparent);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="bg-[#050505] text-gray-200 font-sans selection:bg-gold-premium selection:text-black">
+
+    <!-- TOAST NOTIFICATION SYSTEM -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 w-full z-40 transition-all duration-300 glass-premium shadow-lg" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-gold-600 to-gold-300 flex items-center justify-center shadow-lg border border-gold-400">
+                    <span class="text-black font-extrabold text-base tracking-widest font-serif">AS</span>
+                </div>
+                <div>
+                    <span class="block text-lg font-serif font-bold text-white tracking-wider">PPIU AS-SYIFA</span>
+                    <span class="block text-[9px] text-gold-300 tracking-widest font-semibold uppercase">Digital Learning Platform</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-medium tracking-wide">
+                <a href="#profil" class="text-gray-300 hover:text-gold-300 transition-colors">Profil</a>
+                <a href="#perjalanan" class="text-gray-300 hover:text-gold-300 transition-colors">Perjalanan</a>
+                <a href="#jadwal" class="text-gray-300 hover:text-gold-300 transition-colors">Jadwal Manasik</a>
+                <a href="#manasik-digital" class="text-gray-300 hover:text-gold-300 transition-colors">Digital Manasik</a>
+                <a href="#repository" class="text-gray-300 hover:text-gold-300 transition-colors">Materi</a>
+                <a href="#plaza-alqosbah" class="text-gray-300 hover:text-gold-300 transition-colors">Plaza Al-Qosbah</a>
+                <a href="#organigram" class="text-gray-300 hover:text-gold-300 transition-colors">Struktur</a>
+                <a href="#survei" class="text-gray-300 hover:text-gold-300 transition-colors">Survei</a>
+                <a href="#kontak" class="text-gray-300 hover:text-gold-300 transition-colors">Kontak</a>
+            </nav>
+
+            <!-- Actions and Mobile Toggle -->
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/6282112886401" target="_blank" class="hidden md:flex items-center gap-2 text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-full border border-gold-premium/40 text-gold-300 hover:bg-gold-premium hover:text-black transition-all duration-300">
+                    <i class="fab fa-whatsapp text-sm"></i> Konsultasi Cepat
+                </a>
+                <button id="mobile-menu-btn" class="lg:hidden w-10 h-10 flex items-center justify-center text-white focus:outline-none" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden glass-premium border-t border-gold-premium/10 px-6 py-4 space-y-3 absolute w-full left-0 transition-all duration-300 shadow-xl">
+            <a href="#profil" class="block text-gray-300 hover:text-gold-300 transition-colors py-2 text-sm">Profil</a>
+            <a href="#perjalanan" class="block text-gray-300 hover:text-gold-300 transition-colors py-2 text-sm">Perjalanan</a>
+            <a href="#jadwal" class="block text-gray-300 hover:text-gold-300 transition-colors py-2 text-sm">Jadwal Manasik</a>
+            <a href="#manasik-digital" class="block text-gray-300 hover:text-gold-300 transition-colors py-2 text-sm">Digital Manasik</a>
+            <a href="#repository" class="block text-gray-300 hover:text-gold-300 transition-colors py-2 text-sm">Materi</a>
+            <a href="#plaza-alqosbah" class="block text-gray-300 hover:text-gold-300 transition-colors py-2 text-sm">Plaza Al-Qosbah</a>
+            <a href="#organigram" class="block text-gray-300 hover:text-gold-300 transition-colors py-2 text-sm">Struktur</a>
+            <a href="#survei" class="block text-gray-300 hover:text-gold-300 transition-colors py-2 text-sm">Survei</a>
+            <a href="#kontak" class="block text-gray-300 hover:text-gold-300 transition-colors py-2 text-sm">Kontak</a>
+            <a href="https://wa.me/6282112886401" target="_blank" class="flex items-center justify-center gap-2 w-full text-center text-xs font-bold tracking-wider px-4 py-3 rounded-md bg-gold-premium text-black hover:bg-gold-600 transition-all">
+                <i class="fab fa-whatsapp"></i> DAFTAR KONSULTASI UMRAH
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden bg-neutral-950">
+        <!-- Background Overlay with Cinematic Mosque Images & Gold Gradients -->
+        <div class="absolute inset-0 opacity-40 mix-blend-lighten pointer-events-none">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/70 to-[#050505] z-10"></div>
+            <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&q=80&w=1920" class="w-full h-full object-cover" alt="Masjidil Haram Tawaf" onerror="this.src='https://placehold.co/1920x1080/0d0d0d/d4af37?text=Masjidil+Haram+Visual'">
+        </div>
+        
+        <!-- Elegant ambient glow spots -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gold-premium/5 blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-gold-600/5 blur-[150px] pointer-events-none"></div>
+
+        <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+            <!-- Premium Badges of Commitment -->
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-8">
+                <span class="px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-gold-premium/30 bg-gold-950/40 text-gold-300 shadow-sm shadow-gold-premium/5 flex items-center gap-1.5">
+                    <i class="fa-solid fa-check text-gold-premium"></i> Amanah
+                </span>
+                <span class="px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-gold-premium/30 bg-gold-950/40 text-gold-300 shadow-sm shadow-gold-premium/5 flex items-center gap-1.5">
+                    <i class="fa-solid fa-check text-gold-premium"></i> Profesional
+                </span>
+                <span class="px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-gold-premium/30 bg-gold-950/40 text-gold-300 shadow-sm shadow-gold-premium/5 flex items-center gap-1.5">
+                    <i class="fa-solid fa-check text-gold-premium"></i> Berintegritas
+                </span>
+                <span class="px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-gold-premium/30 bg-gold-950/40 text-gold-300 shadow-sm shadow-gold-premium/5 flex items-center gap-1.5">
+                    <i class="fa-solid fa-check text-gold-premium"></i> Berorientasi Kepuasan
+                </span>
+            </div>
+
+            <!-- Main Headline with Golden Premium Contrast -->
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-extrabold tracking-tight text-white mb-6 leading-[1.15]">
+                Menjadi PPIU yang Menjunjung Tinggi <br class="hidden md:inline">
+                <span class="gold-gradient-text">Kenyamanan Jamaah</span>
+            </h1>
+
+            <!-- Subheadline with modern typography and optimal reading width -->
+            <p class="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-gray-300 font-light mb-12 leading-relaxed">
+                Memberikan layanan umrah yang aman, profesional, dan sesuai tuntunan sunnah Rasulullah SAW. Satu ekosistem digital terintegrasi untuk bimbingan, manasik, dan evaluasi.
+            </p>
+
+            <!-- Call to Actions -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto">
+                <a href="https://wa.me/6282112886401" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-full gold-gradient-bg text-black font-extrabold tracking-wider hover:opacity-90 transform hover:-translate-y-0.5 transition-all text-sm uppercase shadow-lg shadow-gold-premium/20 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-calendar-check"></i> Daftar Konsultasi Umrah
+                </a>
+                <a href="#jadwal" class="w-full sm:w-auto px-8 py-4 rounded-full bg-neutral-900 hover:bg-neutral-800 text-white font-bold tracking-wider border border-gold-premium/30 hover:border-gold-premium transform hover:-translate-y-0.5 transition-all text-sm uppercase flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-calendar-days text-gold-premium"></i> Lihat Jadwal Manasik
+                </a>
+                <a href="#manasik-digital" class="w-full sm:w-auto px-8 py-4 rounded-full bg-transparent hover:bg-gold-premium/10 text-gold-300 font-bold tracking-wider transform hover:-translate-y-0.5 transition-all text-sm uppercase flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-book-open text-gold-premium"></i> Buku Bimbingan Digital
+                </a>
+            </div>
+
+            <!-- Micro platform stats banner -->
+            <div class="mt-20 pt-10 border-t border-neutral-800/60 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto text-left">
+                <div class="p-4 border-l-2 border-gold-premium">
+                    <div class="text-2xl font-bold font-serif text-white">3 Sesi</div>
+                    <div class="text-xs text-gray-400 mt-1">Manasik Intensif</div>
+                </div>
+                <div class="p-4 border-l-2 border-gold-premium">
+                    <div class="text-2xl font-bold font-serif text-white">Plaza Al-Qosbah</div>
+                    <div class="text-xs text-gray-400 mt-1">Praktik Lapangan Eksklusif</div>
+                </div>
+                <div class="p-4 border-l-2 border-gold-premium">
+                    <div class="text-2xl font-bold font-serif text-white">Full-Digital</div>
+                    <div class="text-xs text-gray-400 mt-1">Bimbingan & Materi Online</div>
+                </div>
+                <div class="p-4 border-l-2 border-gold-premium">
+                    <div class="text-2xl font-bold font-serif text-white">Sunnah Sesuai</div>
+                    <div class="text-xs text-gray-400 mt-1">Tuntunan Shahih</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROFIL PERUSAHAAN -->
+    <section id="profil" class="py-24 bg-neutral-900/40 relative border-t border-neutral-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Details: Description & Vision -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-gold-premium">Profil Perusahaan</span>
+                        <h2 class="text-3xl sm:text-4xl font-serif font-extrabold text-white mt-2 leading-tight">
+                            Mitra Perjalanan Spiritual Terbaik & <br>
+                            <span class="gold-gradient-text">Terpercaya</span>
+                        </h2>
+                        <p class="mt-4 text-gray-300 leading-relaxed font-light">
+                            PPIU AS-SYIFA merupakan penyelenggara perjalanan ibadah umrah yang berkomitmen memberikan pelayanan amanah, profesional, dan sesuai tuntunan sunnah Rasulullah SAW. Melalui sistem pembinaan jamaah yang terstruktur, bimbingan manasik yang komprehensif, serta pelayanan keberangkatan yang profesional, PPIU AS-SYIFA hadir sebagai mitra perjalanan ibadah yang terpercaya bagi masyarakat muslim Indonesia.
+                        </p>
+                    </div>
+
+                    <!-- Visi & Misi Card -->
+                    <div class="p-6 sm:p-8 rounded-2xl glass-premium border border-gold-premium/20 space-y-6 relative overflow-hidden">
+                        <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-gold-premium/5 blur-3xl"></div>
+                        <div>
+                            <h3 class="text-lg font-serif font-bold text-gold-premium flex items-center gap-2">
+                                <i class="fa-solid fa-eye"></i> Visi Kami
+                            </h3>
+                            <p class="text-sm text-gray-300 mt-2 leading-relaxed italic">
+                                "Menjadi penyelenggara perjalanan ibadah umrah yang amanah, profesional dan berintegritas dalam memberikan pelayanan dan solusi bagi seluruh masyarakat muslim Indonesia untuk menunaikan ibadah umrah sesuai dengan sunnah Rasulullah SAW."
+                            </p>
+                        </div>
+                        <hr class="border-neutral-800">
+                        <div>
+                            <h3 class="text-lg font-serif font-bold text-gold-premium flex items-center gap-2">
+                                <i class="fa-solid fa-bullseye"></i> Misi Kami
+                            </h3>
+                            <ul class="mt-3 space-y-2.5 text-sm text-gray-300">
+                                <li class="flex items-start gap-2.5">
+                                    <span class="w-5 h-5 rounded-full bg-gold-premium/10 text-gold-400 flex items-center justify-center text-xs mt-0.5 shrink-0 font-bold">1</span>
+                                    <span>Menyelenggarakan perjalanan ibadah umrah sesuai dengan standar dan regulasi pemerintah.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="w-5 h-5 rounded-full bg-gold-premium/10 text-gold-400 flex items-center justify-center text-xs mt-0.5 shrink-0 font-bold">2</span>
+                                    <span>Memberikan pelayanan terbaik dalam ibadah umrah dengan berorientasi pada kepuasan jamaah.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="w-5 h-5 rounded-full bg-gold-premium/10 text-gold-400 flex items-center justify-center text-xs mt-0.5 shrink-0 font-bold">3</span>
+                                    <span>Menyelenggarakan bimbingan ibadah umrah yang murni sesuai tuntunan sunnah Rasulullah SAW untuk menjaga kekhusyukan dan keabsahan ibadah jamaah.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Details: Interactive Statistics -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="text-center lg:text-left">
+                        <span class="text-xs font-bold uppercase tracking-widest text-gold-premium">Statistik Program</span>
+                        <h3 class="text-2xl font-serif font-bold text-white mt-1">Keunggulan Ekosistem Bimbingan</h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="p-5 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/30 transition-all flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-gold-premium/10 flex items-center justify-center text-gold-premium shrink-0 text-xl">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-white">Program Manasik Terstruktur</h4>
+                                <p class="text-xs text-gray-400 mt-1">Metodologi pengajaran intensif terbagi rata secara teoritis dan praktikal agar mudah dimengerti.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-5 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/30 transition-all flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-gold-premium/10 flex items-center justify-center text-gold-premium shrink-0 text-xl">
+                                <i class="fa-solid fa-users-viewfinder"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-white">3 Pertemuan Manasik Intensif</h4>
+                                <p class="text-xs text-gray-400 mt-1">Kelas komprehensif membahas fikih ibadah, persiapan fisik, kesehatan, adab, dan regulasi penting.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-5 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/30 transition-all flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-gold-premium/10 flex items-center justify-center text-gold-premium shrink-0 text-xl">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-white">1 Praktik Lapangan di Plaza Haji Al-Qosbah</h4>
+                                <p class="text-xs text-gray-400 mt-1">Simulasi riil dengan replika Ka'bah, jalur Sa'i, dan tenda ibadah demi melatih kesiapan mental fisik.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-5 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/30 transition-all flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-gold-premium/10 flex items-center justify-center text-gold-premium shrink-0 text-xl">
+                                <i class="fa-solid fa-hands-holding-child"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-white">Pendampingan hingga Keberangkatan</h4>
+                                <p class="text-xs text-gray-400 mt-1">Layanan koper, validasi dokumen, imigrasi, hingga serah terima di bandara diurus dengan rapi.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-5 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/30 transition-all flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-gold-premium/10 flex items-center justify-center text-gold-premium shrink-0 text-xl">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-white">Pelayanan Jamaah Berbasis Learning Center</h4>
+                                <p class="text-xs text-gray-400 mt-1">Kemudahan akses materi bimbingan, video interaktif, dan feedback digital kapanpun dibutuhkan.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JAMAAH JOURNEY (TIMELINE INTERAKTIF) -->
+    <section id="perjalanan" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-premium">Peta Jalur Ibadah</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-extrabold text-white mt-2">
+                    Perjalanan Jamaah <span class="gold-gradient-text">(Jamaah Journey)</span>
+                </h2>
+                <p class="text-gray-400 mt-4 text-sm font-light leading-relaxed">
+                    Sembilan tahap pendampingan dari pendaftaran awal, proses pembinaan intensif, pelaksanaan ibadah murni di Tanah Suci, hingga evaluasi pasca-kepulangan.
+                </p>
+            </div>
+
+            <!-- Horizontal Journey Scroll on Desktop / Vertical Timeline on Mobile -->
+            <div class="relative min-h-[300px]">
+                <!-- Interactive Vertical Steps Indicator -->
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-9 gap-4 relative z-10">
+                    
+                    <!-- STEP CARD 1 -->
+                    <div class="p-5 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/40 transition-all text-center relative flex flex-col items-center justify-between group">
+                        <div class="w-10 h-10 rounded-full bg-gold-premium/10 text-gold-premium font-bold flex items-center justify-center border border-gold-premium/20 mb-3 group-hover:bg-gold-premium group-hover:text-black transition-all">01</div>
+                        <h4 class="text-sm font-serif font-bold text-white">Registrasi Jamaah</h4>
+                        <p class="text-[11px] text-gray-400 mt-2">Pengumpulan data pendaftaran resmi.</p>
+                    </div>
+
+                    <!-- STEP CARD 2 -->
+                    <div class="p-5 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/40 transition-all text-center relative flex flex-col items-center justify-between group">
+                        <div class="w-10 h-10 rounded-full bg-gold-premium/10 text-gold-premium font-bold flex items-center justify-center border border-gold-premium/20 mb-3 group-hover:bg-gold-premium group-hover:text-black transition-all">02</div>
+                        <h4 class="text-sm font-serif font-bold text-white">Konsultasi & Verifikasi</h4>
+                        <p class="text-[11px] text-gray-400 mt-2">Validasi dokumen paspor, vaksin, dll.</p>
+                    </div>
+
+                    <!-- STEP CARD 3 -->
+                    <div class="p-5 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/40 transition-all text-center relative flex flex-col items-center justify-between group">
+                        <div class="w-10 h-10 rounded-full bg-gold-premium/10 text-gold-premium font-bold flex items-center justify-center border border-gold-premium/20 mb-3 group-hover:bg-gold-premium group-hover:text-black transition-all">03</div>
+                        <h4 class="text-sm font-serif font-bold text-white">Manasik Sesi I</h4>
+                        <p class="text-[11px] text-gray-400 mt-2">Pembekalan fikih teori dan pengantar.</p>
+                    </div>
+
+                    <!-- STEP CARD 4 -->
+                    <div class="p-5 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/40 transition-all text-center relative flex flex-col items-center justify-between group">
+                        <div class="w-10 h-10 rounded-full bg-gold-premium/10 text-gold-premium font-bold flex items-center justify-center border border-gold-premium/20 mb-3 group-hover:bg-gold-premium group-hover:text-black transition-all">04</div>
+                        <h4 class="text-sm font-serif font-bold text-white">Praktik Al-Qosbah</h4>
+                        <p class="text-[11px] text-gray-400 mt-2">Simulasi fisik rukun & wajib umrah.</p>
+                    </div>
+
+                    <!-- STEP CARD 5 -->
+                    <div class="p-5 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/40 transition-all text-center relative flex flex-col items-center justify-between group">
+                        <div class="w-10 h-10 rounded-full bg-gold-premium/10 text-gold-premium font-bold flex items-center justify-center border border-gold-premium/20 mb-3 group-hover:bg-gold-premium group-hover:text-black transition-all">05</div>
+                        <h4 class="text-sm font-serif font-bold text-white">Manasik Sesi III</h4>
+                        <p class="text-[11px] text-gray-400 mt-2">Pemantapan doa & adab tanah suci.</p>
+                    </div>
+
+                    <!-- STEP CARD 6 -->
+                    <div class="p-5 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/40 transition-all text-center relative flex flex-col items-center justify-between group">
+                        <div class="w-10 h-10 rounded-full bg-gold-premium/10 text-gold-premium font-bold flex items-center justify-center border border-gold-premium/20 mb-3 group-hover:bg-gold-premium group-hover:text-black transition-all">06</div>
+                        <h4 class="text-sm font-serif font-bold text-white">Koleksi Koper</h4>
+                        <p class="text-[11px] text-gray-400 mt-2">Pemberian perlengkapan dan timbang bagasi.</p>
+                    </div>
+
+                    <!-- STEP CARD 7 -->
+                    <div class="p-5 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/40 transition-all text-center relative flex flex-col items-center justify-between group">
+                        <div class="w-10 h-10 rounded-full bg-gold-premium/10 text-gold-premium font-bold flex items-center justify-center border border-gold-premium/20 mb-3 group-hover:bg-gold-premium group-hover:text-black transition-all">07</div>
+                        <h4 class="text-sm font-serif font-bold text-white">Keberangkatan</h4>
+                        <p class="text-[11px] text-gray-400 mt-2">Pemberangkatan menuju Arab Saudi.</p>
+                    </div>
+
+                    <!-- STEP CARD 8 -->
+                    <div class="p-5 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/40 transition-all text-center relative flex flex-col items-center justify-between group">
+                        <div class="w-10 h-10 rounded-full bg-gold-premium/10 text-gold-premium font-bold flex items-center justify-center border border-gold-premium/20 mb-3 group-hover:bg-gold-premium group-hover:text-black transition-all">08</div>
+                        <h4 class="text-sm font-serif font-bold text-white">Pelaksanaan Umrah</h4>
+                        <p class="text-[11px] text-gray-400 mt-2">Ibadah murni dibimbing mutawwif ahli.</p>
+                    </div>
+
+                    <!-- STEP CARD 9 -->
+                    <div class="p-5 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/40 transition-all text-center relative flex flex-col items-center justify-between group">
+                        <div class="w-10 h-10 rounded-full bg-gold-premium/10 text-gold-premium font-bold flex items-center justify-center border border-gold-premium/20 mb-3 group-hover:bg-gold-premium group-hover:text-black transition-all">09</div>
+                        <h4 class="text-sm font-serif font-bold text-white">Evaluasi & Survei</h4>
+                        <p class="text-[11px] text-gray-400 mt-2">Pelaporan komprehensif kepuasan jamaah.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JADWAL MANASIK RESMI -->
+    <section id="jadwal" class="py-24 bg-neutral-900/60 relative border-t border-b border-neutral-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-premium">Kalender Resmi 2026</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-extrabold text-white mt-2">
+                    Jadwal Pembekalan Manasik Resmi
+                </h2>
+                <p class="text-gray-400 mt-4 text-sm font-light">
+                    Rencana pertemuan manasik terencana untuk mematangkan pemahaman ibadah jamaah menuju keberangkatan suci.
+                </p>
+            </div>
+
+            <!-- Calendar Modern Grid Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- PERTEMUAN 1 -->
+                <div class="rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/30 transition-all flex flex-col justify-between overflow-hidden shadow-lg shadow-black/35 group">
+                    <div class="p-6 bg-gradient-to-br from-neutral-800 to-neutral-900 border-b border-neutral-800">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded bg-gold-premium/10 text-gold-300 font-bold text-xs tracking-wider uppercase">Pertemuan 1</span>
+                            <span class="text-gray-400 text-xs flex items-center gap-1"><i class="fa-regular fa-clock"></i> 08.00 - Selesai</span>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-white mt-4 flex items-baseline gap-2">
+                            24 Mei 2026
+                        </h3>
+                        <p class="text-xs text-gold-400 mt-1">Pembekalan Teori Dasar & Fikih Umrah</p>
+                    </div>
+                    <div class="p-6 flex-grow space-y-4">
+                        <h4 class="text-xs font-bold uppercase text-gray-400 tracking-wider">Materi Utama:</h4>
+                        <ul class="space-y-3 text-sm text-gray-300">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-square-check text-gold-premium mt-0.5"></i>
+                                <span>Kebijakan dan Tata Tertib Jamaah Umrah</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-square-check text-gold-premium mt-0.5"></i>
+                                <span>Pengertian, Hikmah, dan Keutamaan Umrah</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-square-check text-gold-premium mt-0.5"></i>
+                                <span>Rukun, Wajib, dan Sunnah Umrah</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-square-check text-gold-premium mt-0.5"></i>
+                                <span>Praktik Niat Ihram dan Talbiyah</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-square-check text-gold-premium mt-0.5"></i>
+                                <span>Tanya Jawab Jamaah</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PERTEMUAN 2 -->
+                <div class="rounded-2xl bg-neutral-900 border-2 border-gold-premium/40 hover:border-gold-premium transition-all flex flex-col justify-between overflow-hidden shadow-lg shadow-black/35 relative group">
+                    <div class="absolute top-0 right-0 bg-gold-premium text-black text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-bl">Praktik Lapangan</div>
+                    <div class="p-6 bg-gradient-to-br from-[#1b1509] to-neutral-900 border-b border-neutral-800">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded bg-gold-premium/20 text-gold-300 font-bold text-xs tracking-wider uppercase">Pertemuan 2</span>
+                            <span class="text-gray-400 text-xs flex items-center gap-1"><i class="fa-regular fa-clock"></i> 08.00 - Selesai</span>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-white mt-4 flex items-baseline gap-2">
+                            25 Mei 2026
+                        </h3>
+                        <p class="text-xs text-gold-400 mt-1">Simulasi Praktik di Plaza Al-Qosbah</p>
+                    </div>
+                    <div class="p-6 flex-grow space-y-4">
+                        <h4 class="text-xs font-bold uppercase text-gray-400 tracking-wider">Materi Utama:</h4>
+                        <ul class="space-y-3 text-sm text-gray-300">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-square-check text-gold-premium mt-0.5"></i>
+                                <span>Persiapan Sebelum Keberangkatan</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-square-check text-gold-premium mt-0.5"></i>
+                                <span>Tata Cara Perjalanan dan Proses di Bandara</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-square-check text-gold-premium mt-0.5"></i>
+                                <span>Praktik Tawaf dan Sa'i secara Riil</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-square-check text-gold-premium mt-0.5"></i>
+                                <span>Tahallul dan Larangan Ihram</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-square-check text-gold-premium mt-0.5"></i>
+                                <span>Simulasi Pelaksanaan Umrah Lengkap</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PERTEMUAN 3 -->
+                <div class="rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/30 transition-all flex flex-col justify-between overflow-hidden shadow-lg shadow-black/35 group">
+                    <div class="p-6 bg-gradient-to-br from-neutral-800 to-neutral-900 border-b border-neutral-800">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded bg-gold-premium/10 text-gold-300 font-bold text-xs tracking-wider uppercase">Pertemuan 3</span>
+                            <span class="text-gray-400 text-xs flex items-center gap-1"><i class="fa-regular fa-clock"></i> 08.00 - Selesai</span>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-white mt-4 flex items-baseline gap-2">
+                            26 Mei 2026
+                        </h3>
+                        <p class="text-xs text-gold-400 mt-1">Pemantapan Akhlak, Doa & Teknikal Keberangkatan</p>
+                    </div>
+                    <div class="p-6 flex-grow space-y-4">
+                        <h4 class="text-xs font-bold uppercase text-gray-400 tracking-wider">Materi Utama:</h4>
+                        <ul class="space-y-3 text-sm text-gray-300">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-square-check text-gold-premium mt-0.5"></i>
+                                <span>Adab dan Akhlak Jamaah di Tanah Suci</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-square-check text-gold-premium mt-0.5"></i>
+                                <span>Doa-doa Penting Selama Perjalanan & Umrah</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-square-check text-gold-premium mt-0.5"></i>
+                                <span>Ziarah Kota Makkah dan Madinah</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-square-check text-gold-premium mt-0.5"></i>
+                                <span>Kesehatan Jamaah & Manajemen Obat Pribadi</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-square-check text-gold-premium mt-0.5"></i>
+                                <span>Evaluasi, Penyerahan Atribut, & Doa Bersama</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DIGITAL MANASIK CENTER (DIKEMAS MENJADI MODAL IMERSIF PREMIUM) -->
+    <section id="manasik-digital" class="py-24 bg-neutral-950 relative overflow-hidden">
+        <!-- background glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-gold-premium/5 blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-premium">Manasik Digital Platform</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-extrabold text-white mt-2">
+                    Digital Manasik Center
+                </h2>
+                <p class="text-gray-400 mt-4 text-sm font-light">
+                    Perpustakaan digital khusus jamaah. Dilengkapi flipbook interaktif, bookmark, pencarian kata kunci, serta penyesuaian tema visual.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Side: Interactive 3D Mockup Book Cover -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div onclick="openDigitalReader()" class="relative group cursor-pointer w-72 h-[420px] rounded-r-2xl shadow-2xl border-l-8 border-gold-600 bg-gradient-to-br from-neutral-900 via-[#1b1509] to-neutral-950 flex flex-col justify-between p-8 overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-gold-premium/15 border border-neutral-800">
+                        <!-- Book Cover Pattern Background -->
+                        <div class="absolute inset-0 opacity-10 bg-repeat bg-center pointer-events-none" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2230%22 height=%2230%22 viewBox=%220 0 30 30%22><path d=%22M15 0 L30 15 L15 30 L0 15 Z%22 fill=%22none%22 stroke=%22%23D4AF37%22 stroke-width=%221%22/></svg>');"></div>
+                        <div class="absolute -right-12 -top-12 w-40 h-40 rounded-full bg-gold-premium/5 blur-2xl group-hover:bg-gold-premium/10 transition-all"></div>
+                        
+                        <!-- Book Spine shadow -->
+                        <div class="absolute inset-y-0 left-0 w-2 bg-gradient-to-r from-black/50 to-transparent"></div>
+                        
+                        <!-- Book Content Cover -->
+                        <div class="relative z-10 flex flex-col justify-between h-full">
+                            <div>
+                                <div class="flex items-center gap-1.5 mb-4">
+                                    <span class="w-2 h-2 rounded-full bg-gold-premium animate-pulse"></span>
+                                    <span class="text-[9px] font-bold text-gold-300 tracking-widest uppercase">E-Buku Resmi PPIU</span>
+                                </div>
+                                <h3 class="text-2xl font-serif font-extrabold text-white leading-snug group-hover:text-gold-premium transition-colors">
+                                    PANDUAN <br>
+                                    <span class="gold-gradient-text">PRAKTIS</span> <br>
+                                    HAJI & UMRAH
+                                </h3>
+                                <div class="w-12 h-[3px] bg-gold-premium mt-4 rounded"></div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <p class="text-[10px] text-gray-400 tracking-wide">
+                                    Diterbitkan Oleh Komite Pembimbing Ibadah PPIU AS-SYIFA
+                                </p>
+                                <div class="flex items-center justify-between border-t border-neutral-800 pt-3">
+                                    <span class="text-[10px] font-bold text-gold-premium uppercase tracking-widest">Edisi 2026</span>
+                                    <span class="text-[10px] text-gray-500 font-bold flex items-center gap-1"><i class="fa-solid fa-book-open"></i> Baca</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Beautiful Book Information Poster & Key Features list -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div class="p-8 rounded-2xl glass-premium border border-gold-premium/20 space-y-6 relative overflow-hidden">
+                        <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-gold-premium/5 blur-3xl"></div>
+                        <div>
+                            <span class="text-[10px] uppercase font-bold tracking-widest text-gold-premium">Pusat Pembinaan Jamaah</span>
+                            <h3 class="text-2xl font-serif font-bold text-white mt-1">Satu Sentuhan Menuju Kemudahan Ibadah</h3>
+                            <p class="text-sm text-gray-300 mt-3 leading-relaxed font-light">
+                                Panduan interaktif praktis yang kami susun secara ringkas, padat, dan murni berlandaskan Al-Qur'an serta Sunnah shahihah Rasulullah SAW. Kini hadir secara digital agar jamaah dapat belajar kapan saja dan di mana saja sebelum keberangkatan menuju tanah suci.
+                            </p>
+                        </div>
+
+                        <hr class="border-neutral-800">
+
+                        <!-- Highlights Features Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-gray-300">
+                            <div class="flex items-center gap-3"><span class="w-6 h-6 rounded-full bg-gold-premium/10 flex items-center justify-center text-[10px] text-gold-premium"><i class="fa-solid fa-book-open"></i></span> Flipbook Interaktif</div>
+                            <div class="flex items-center gap-3"><span class="w-6 h-6 rounded-full bg-gold-premium/10 flex items-center justify-center text-[10px] text-gold-premium"><i class="fa-solid fa-bookmark"></i></span> Simpan Bookmark Halaman</div>
+                            <div class="flex items-center gap-3"><span class="w-6 h-6 rounded-full bg-gold-premium/10 flex items-center justify-center text-[10px] text-gold-premium"><i class="fa-solid fa-chart-line"></i></span> Progress Membaca Riil</div>
+                            <div class="flex items-center gap-3"><span class="w-6 h-6 rounded-full bg-gold-premium/10 flex items-center justify-center text-[10px] text-gold-premium"><i class="fa-solid fa-magnifying-glass"></i></span> Cari Materi Cepat</div>
+                            <div class="flex items-center gap-3"><span class="w-6 h-6 rounded-full bg-gold-premium/10 flex items-center justify-center text-[10px] text-gold-premium"><i class="fa-solid fa-moon"></i></span> Mode Siang & Malam</div>
+                            <div class="flex items-center gap-3"><span class="w-6 h-6 rounded-full bg-gold-premium/10 flex items-center justify-center text-[10px] text-gold-premium"><i class="fa-solid fa-mobile-screen-button"></i></span> Navigasi Bab Otomatis</div>
+                            <div class="flex items-center gap-3"><span class="w-6 h-6 rounded-full bg-gold-premium/10 flex items-center justify-center text-[10px] text-gold-premium"><i class="fa-solid fa-wifi"></i></span> Tanpa Perlu Download</div>
+                            <div class="flex items-center gap-3"><span class="w-6 h-6 rounded-full bg-gold-premium/10 flex items-center justify-center text-[10px] text-gold-premium"><i class="fa-solid fa-circle-check"></i></span> Responsif di Segala Gawai</div>
+                        </div>
+
+                        <div class="pt-2">
+                            <button onclick="openDigitalReader()" class="w-full sm:w-auto px-8 py-4 rounded-xl gold-gradient-bg text-black font-extrabold text-xs uppercase tracking-widest hover:opacity-95 hover:scale-[1.01] transition-all flex items-center justify-center gap-3 shadow-lg shadow-gold-premium/20">
+                                <i class="fa-solid fa-book-open text-sm"></i> MULAI MEMBACA BUKU BIMBINGAN DIGITAL
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REPOSITORY MATERI JAMAAH -->
+    <section id="repository" class="py-24 bg-neutral-900/40 relative border-t border-b border-neutral-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-premium">Pusat Arsip Digital</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-extrabold text-white mt-2">
+                    Repository Materi Jamaah
+                </h2>
+                <p class="text-gray-400 mt-4 text-sm font-light">
+                    Unduh dan pelajari modul panduan, slide presentasi pembimbing, checklist persiapan, hingga rangkuman doa-doa penting langsung ke perangkat Anda.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- CARD 1 -->
+                <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/30 hover:scale-[1.01] transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded bg-red-950/40 text-red-400 font-bold text-[10px] uppercase tracking-wider border border-red-900/30">Document PDF</span>
+                            <span class="text-gray-500 text-xs font-mono">12.5 MB</span>
+                        </div>
+                        <h3 class="text-lg font-serif font-bold text-white group-hover:text-gold-premium transition-colors">Modul Manasik Haji dan Umrah</h3>
+                        <p class="text-xs text-gray-400 mt-2">Buku pegangan lengkap mencakup rukun, wajib, tata cara, dan fiqih wanita saat beribadah.</p>
+                    </div>
+                    <button onclick="simulateDownload('Modul Manasik Haji dan Umrah')" class="mt-6 w-full py-2.5 rounded-lg bg-neutral-800 text-xs text-white group-hover:bg-gold-premium group-hover:text-black font-semibold transition-all flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-download"></i> Unduh File
+                    </button>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/30 hover:scale-[1.01] transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded bg-amber-950/40 text-amber-400 font-bold text-[10px] uppercase tracking-wider border border-amber-900/30">Powerpoint PPT</span>
+                            <span class="text-gray-500 text-xs font-mono">8.4 MB</span>
+                        </div>
+                        <h3 class="text-lg font-serif font-bold text-white group-hover:text-gold-premium transition-colors">Slide Presentasi Pembimbing</h3>
+                        <p class="text-xs text-gray-400 mt-2">Kumpulan bahan ajar visual yang dibawakan oleh asatidzah selama sesi manasik offline.</p>
+                    </div>
+                    <button onclick="simulateDownload('Slide Presentasi Pembimbing')" class="mt-6 w-full py-2.5 rounded-lg bg-neutral-800 text-xs text-white group-hover:bg-gold-premium group-hover:text-black font-semibold transition-all flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-download"></i> Unduh File
+                    </button>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/30 hover:scale-[1.01] transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded bg-green-950/40 text-green-400 font-bold text-[10px] uppercase tracking-wider border border-green-900/30">Checklist PDF</span>
+                            <span class="text-gray-500 text-xs font-mono">1.2 MB</span>
+                        </div>
+                        <h3 class="text-lg font-serif font-bold text-white group-hover:text-gold-premium transition-colors">Checklist Persiapan Berangkat</h3>
+                        <p class="text-xs text-gray-400 mt-2">Daftar kelengkapan administrasi, visa, mahram, obat, dan vaksinasi pra-keberangkatan.</p>
+                    </div>
+                    <button onclick="simulateDownload('Checklist Persiapan Keberangkatan')" class="mt-6 w-full py-2.5 rounded-lg bg-neutral-800 text-xs text-white group-hover:bg-gold-premium group-hover:text-black font-semibold transition-all flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-download"></i> Unduh File
+                    </button>
+                </div>
+
+                <!-- CARD 4 -->
+                <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/30 hover:scale-[1.01] transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded bg-blue-950/40 text-blue-400 font-bold text-[10px] uppercase tracking-wider border border-blue-900/30">Kesehatan PDF</span>
+                            <span class="text-gray-500 text-xs font-mono">4.1 MB</span>
+                        </div>
+                        <h3 class="text-lg font-serif font-bold text-white group-hover:text-gold-premium transition-colors">Panduan Kesehatan Jamaah</h3>
+                        <p class="text-xs text-gray-400 mt-2">Tips menjaga hidrasi tubuh, menangani penyakit musiman, dan adaptasi iklim gurun pasir.</p>
+                    </div>
+                    <button onclick="simulateDownload('Panduan Kesehatan Jamaah')" class="mt-6 w-full py-2.5 rounded-lg bg-neutral-800 text-xs text-white group-hover:bg-gold-premium group-hover:text-black font-semibold transition-all flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-download"></i> Unduh File
+                    </button>
+                </div>
+
+                <!-- CARD 5 -->
+                <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/30 hover:scale-[1.01] transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded bg-amber-950/40 text-amber-400 font-bold text-[10px] uppercase tracking-wider border border-amber-900/30">Video MP4</span>
+                            <span class="text-gray-500 text-xs font-mono">145 MB</span>
+                        </div>
+                        <h3 class="text-lg font-serif font-bold text-white group-hover:text-gold-premium transition-colors">Panduan Perjalanan Bandara</h3>
+                        <p class="text-xs text-gray-400 mt-2">Rekaman simulasi alur penyerahan boarding pass, klaim koper, imigrasi bandara domestik & internasional.</p>
+                    </div>
+                    <button onclick="simulateDownload('Panduan Perjalanan Bandara')" class="mt-6 w-full py-2.5 rounded-lg bg-neutral-800 text-xs text-white group-hover:bg-gold-premium group-hover:text-black font-semibold transition-all flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-download"></i> Unduh File
+                    </button>
+                </div>
+
+                <!-- CARD 6 -->
+                <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/30 hover:scale-[1.01] transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded bg-red-950/40 text-red-400 font-bold text-[10px] uppercase tracking-wider border border-red-900/30">Doa PDF</span>
+                            <span class="text-gray-500 text-xs font-mono">2.8 MB</span>
+                        </div>
+                        <h3 class="text-lg font-serif font-bold text-white group-hover:text-gold-premium transition-colors">Rangkuman Doa-doa Penting</h3>
+                        <p class="text-xs text-gray-400 mt-2">Doa tholalut, do'a safar, ihram, putaran thowaf, sa'i, hingga tahallul dilengkapi teks latin & artinya.</p>
+                    </div>
+                    <button onclick="simulateDownload('Rangkuman Doa-doa Penting')" class="mt-6 w-full py-2.5 rounded-lg bg-neutral-800 text-xs text-white group-hover:bg-gold-premium group-hover:text-black font-semibold transition-all flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-download"></i> Unduh File
+                    </button>
+                </div>
+
+                <!-- CARD 7 -->
+                <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/30 hover:scale-[1.01] transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded bg-green-950/40 text-green-400 font-bold text-[10px] uppercase tracking-wider border border-green-900/30">Checklist PDF</span>
+                            <span class="text-gray-500 text-xs font-mono">1.1 MB</span>
+                        </div>
+                        <h3 class="text-lg font-serif font-bold text-white group-hover:text-gold-premium transition-colors">Panduan Barang Bawaan</h3>
+                        <p class="text-xs text-gray-400 mt-2">Checklist koper besar & tas paspor, jumlah baju ihram, obat, dan barang penting harian.</p>
+                    </div>
+                    <button onclick="simulateDownload('Panduan Barang Bawaan')" class="mt-6 w-full py-2.5 rounded-lg bg-neutral-800 text-xs text-white group-hover:bg-gold-premium group-hover:text-black font-semibold transition-all flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-download"></i> Unduh File
+                    </button>
+                </div>
+
+                <!-- CARD 8 -->
+                <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-gold-premium/30 hover:scale-[1.01] transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded bg-blue-950/40 text-blue-400 font-bold text-[10px] uppercase tracking-wider border border-blue-900/30">E-Book EPUB</span>
+                            <span class="text-gray-500 text-xs font-mono">6.5 MB</span>
+                        </div>
+                        <h3 class="text-lg font-serif font-bold text-white group-hover:text-gold-premium transition-colors">Kamus Praktis Percakapan Arab</h3>
+                        <p class="text-xs text-gray-400 mt-2">Frasa harian praktis untuk berbelanja, naik taksi, memesan obat, dan menanyakan jalan di Haramain.</p>
+                    </div>
+                    <button onclick="simulateDownload('Kamus Praktis Percakapan Arab')" class="mt-6 w-full py-2.5 rounded-lg bg-neutral-800 text-xs text-white group-hover:bg-gold-premium group-hover:text-black font-semibold transition-all flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-download"></i> Unduh File
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PUSAT EDUKASI DIGITAL (VIDEO & INFOGRAFIS) -->
+    <section id="edukasi" class="py-24 bg-neutral-950 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-premium">Pusat Belajar Visual</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-extrabold text-white mt-2">
+                    Pusat Edukasi Digital
+                </h2>
+                <p class="text-gray-400 mt-4 text-sm font-light">
+                    Kombinasi video bimbingan tata cara rukun umrah yang interaktif beserta pustaka infografis siap simpan.
+                </p>
+            </div>
+
+            <!-- Tab Buttons Container -->
+            <div class="flex justify-center mb-10">
+                <div class="inline-flex rounded-xl bg-neutral-900 p-1.5 border border-neutral-850">
+                    <button onclick="switchEduTab('video')" id="tab-btn-video" class="px-6 py-2.5 rounded-lg text-sm font-bold tracking-wider uppercase transition-all duration-300 bg-gold-premium text-black">
+                        <i class="fa-solid fa-video mr-1.5"></i> Video Edukasi
+                    </button>
+                    <button onclick="switchEduTab('infografis')" id="tab-btn-infografis" class="px-6 py-2.5 rounded-lg text-sm font-bold tracking-wider uppercase transition-all duration-300 text-gray-400 hover:text-white">
+                        <i class="fa-solid fa-image mr-1.5"></i> Infografis Panduan
+                    </button>
+                </div>
+            </div>
+
+            <!-- VIDEO PANEL -->
+            <div id="edu-panel-video" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Video Item 1 -->
+                <div class="rounded-xl overflow-hidden bg-neutral-900 border border-neutral-800 flex flex-col justify-between shadow-md">
+                    <div class="relative group cursor-pointer" onclick="playMockVideo('Tata Cara Ihram & Larangannya')">
+                        <img src="https://images.unsplash.com/photo-1694073385150-db6358364ff3?auto=format&fit=crop&q=80&w=400&h=225" class="w-full h-[180px] object-cover" alt="Tata cara ihram">
+                        <div class="absolute inset-0 bg-black/50 flex items-center justify-center group-hover:bg-black/40 transition-all">
+                            <span class="w-12 h-12 rounded-full bg-gold-premium text-black flex items-center justify-center text-lg"><i class="fa-solid fa-play"></i></span>
+                        </div>
+                        <span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black text-white text-[10px] font-mono">08:45</span>
+                    </div>
+                    <div class="p-4">
+                        <span class="text-[10px] text-gold-premium font-bold uppercase tracking-wider">Modul Fiqih</span>
+                        <h4 class="font-serif font-bold text-white text-sm mt-1">Tata Cara Niat & Penggunaan Kain Ihram</h4>
+                    </div>
+                </div>
+
+                <!-- Video Item 2 -->
+                <div class="rounded-xl overflow-hidden bg-neutral-900 border border-neutral-800 flex flex-col justify-between shadow-md">
+                    <div class="relative group cursor-pointer" onclick="playMockVideo('Simulasi Praktik Tawaf')">
+                        <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&q=80&w=400&h=225" class="w-full h-[180px] object-cover" alt="Praktik Tawaf">
+                        <div class="absolute inset-0 bg-black/50 flex items-center justify-center group-hover:bg-black/40 transition-all">
+                            <span class="w-12 h-12 rounded-full bg-gold-premium text-black flex items-center justify-center text-lg"><i class="fa-solid fa-play"></i></span>
+                        </div>
+                        <span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black text-white text-[10px] font-mono">12:30</span>
+                    </div>
+                    <div class="p-4">
+                        <span class="text-[10px] text-gold-premium font-bold uppercase tracking-wider">Modul Praktik</span>
+                        <h4 class="font-serif font-bold text-white text-sm mt-1">Praktik Tawaf di Replika Al-Qosbah</h4>
+                    </div>
+                </div>
+
+                <!-- Video Item 3 -->
+                <div class="rounded-xl overflow-hidden bg-neutral-900 border border-neutral-800 flex flex-col justify-between shadow-md">
+                    <div class="relative group cursor-pointer" onclick="playMockVideo('Panduan Sa\'i Bukit Safa Marwah')">
+                        <img src="https://images.unsplash.com/photo-1598060026418-4db42fa9f974?auto=format&fit=crop&q=80&w=400&h=225" class="w-full h-[180px] object-cover" alt="Sa'i">
+                        <div class="absolute inset-0 bg-black/50 flex items-center justify-center group-hover:bg-black/40 transition-all">
+                            <span class="w-12 h-12 rounded-full bg-gold-premium text-black flex items-center justify-center text-lg"><i class="fa-solid fa-play"></i></span>
+                        </div>
+                        <span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black text-white text-[10px] font-mono">07:15</span>
+                    </div>
+                    <div class="p-4">
+                        <span class="text-[10px] text-gold-premium font-bold uppercase tracking-wider">Modul Rukun</span>
+                        <h4 class="font-serif font-bold text-white text-sm mt-1">Simulasi Berjalan & Lari Sa'i</h4>
+                    </div>
+                </div>
+
+                <!-- Video Item 4 -->
+                <div class="rounded-xl overflow-hidden bg-neutral-900 border border-neutral-800 flex flex-col justify-between shadow-md">
+                    <div class="relative group cursor-pointer" onclick="playMockVideo('Tahallul & Adab Bercukur')">
+                        <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&q=80&w=400&h=225" class="w-full h-[180px] object-cover" alt="Tahallul">
+                        <div class="absolute inset-0 bg-black/50 flex items-center justify-center group-hover:bg-black/40 transition-all">
+                            <span class="w-12 h-12 rounded-full bg-gold-premium text-black flex items-center justify-center text-lg"><i class="fa-solid fa-play"></i></span>
+                        </div>
+                        <span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black text-white text-[10px] font-mono">04:50</span>
+                    </div>
+                    <div class="p-4">
+                        <span class="text-[10px] text-gold-premium font-bold uppercase tracking-wider">Modul Akhir</span>
+                        <h4 class="font-serif font-bold text-white text-sm mt-1">Adab Pencukuran Tahallul Sesuai Sunnah</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INFOGRAFIS PANEL -->
+            <div id="edu-panel-infografis" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Infografis Item 1 -->
+                <div class="rounded-xl bg-neutral-900 border border-neutral-850 p-5 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-lg bg-amber-950/40 border border-amber-900/30 text-amber-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-diagram-project"></i></div>
+                        <h4 class="font-serif font-bold text-white text-base">Alur Pelaksanaan Umrah</h4>
+                        <p class="text-xs text-gray-400 mt-2">Diagram alir taktis dari miqat, tawaf, sa'i, tahallul hingga tertib tertata rapi.</p>
+                    </div>
+                    <button onclick="simulateDownload('Infografis Alur Pelaksanaan Umrah')" class="mt-6 w-full py-2 bg-neutral-800 text-xs text-gold-premium hover:bg-gold-premium hover:text-black font-semibold rounded-lg transition-all"><i class="fa-solid fa-arrow-down-to-bracket mr-1"></i> Simpan Infografis</button>
+                </div>
+
+                <!-- Infografis Item 2 -->
+                <div class="rounded-xl bg-neutral-900 border border-neutral-850 p-5 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-lg bg-green-950/40 border border-green-900/30 text-green-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-id-card"></i></div>
+                        <h4 class="font-serif font-bold text-white text-base">Checklist Dokumen Penting</h4>
+                        <p class="text-xs text-gray-400 mt-2">Poster saku administrasi paspor, visa, e-HAC, pasfoto, dan kartu mahram.</p>
+                    </div>
+                    <button onclick="simulateDownload('Infografis Checklist Dokumen')" class="mt-6 w-full py-2 bg-neutral-800 text-xs text-gold-premium hover:bg-gold-premium hover:text-black font-semibold rounded-lg transition-all"><i class="fa-solid fa-arrow-down-to-bracket mr-1"></i> Simpan Infografis</button>
+                </div>
+
+                <!-- Infografis Item 3 -->
+                <div class="rounded-xl bg-neutral-900 border border-neutral-850 p-5 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-lg bg-blue-950/40 border border-blue-900/30 text-blue-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-suitcase"></i></div>
+                        <h4 class="font-serif font-bold text-white text-base">Checklist Isi Koper Jamaah</h4>
+                        <p class="text-xs text-gray-400 mt-2">Daftar visual kuantitas pakaian ihram, kosmetik non-alkohol, charger, obat.</p>
+                    </div>
+                    <button onclick="simulateDownload('Infografis Checklist Koper')" class="mt-6 w-full py-2 bg-neutral-800 text-xs text-gold-premium hover:bg-gold-premium hover:text-black font-semibold rounded-lg transition-all"><i class="fa-solid fa-arrow-down-to-bracket mr-1"></i> Simpan Infografis</button>
+                </div>
+
+                <!-- Infografis Item 4 -->
+                <div class="rounded-xl bg-neutral-900 border border-neutral-850 p-5 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-lg bg-red-950/40 border border-red-900/30 text-red-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-ban"></i></div>
+                        <h4 class="font-serif font-bold text-white text-base">Barang Larangan Kabin</h4>
+                        <p class="text-xs text-gray-400 mt-2">Larangan membawa benda tajam, cairan > 100ml, dan kompresor aerosol.</p>
+                    </div>
+                    <button onclick="simulateDownload('Infografis Barang Larangan')" class="mt-6 w-full py-2 bg-neutral-800 text-xs text-gold-premium hover:bg-gold-premium hover:text-black font-semibold rounded-lg transition-all"><i class="fa-solid fa-arrow-down-to-bracket mr-1"></i> Simpan Infografis</button>
+                </div>
+            </div>
+
+            <!-- Video Player Mockup Container (Shown on Click) -->
+            <div id="video-player-modal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 backdrop-blur-sm">
+                <div class="w-full max-w-3xl rounded-2xl glass-premium border border-gold-premium/30 p-4 sm:p-6 shadow-2xl relative">
+                    <button onclick="closeVideoPlayer()" class="absolute -top-12 right-0 sm:-right-4 w-10 h-10 bg-neutral-900 border border-gold-premium/30 rounded-full text-gold-premium hover:text-white flex items-center justify-center"><i class="fa-solid fa-xmark text-lg"></i></button>
+                    <h3 class="text-lg font-serif font-bold text-white mb-4" id="modal-video-title">Memutar Video</h3>
+                    <!-- Dummy Cinematic Visual representing Video Streaming -->
+                    <div class="aspect-video w-full rounded-xl overflow-hidden bg-black relative border border-neutral-800 flex flex-col items-center justify-center text-center p-6">
+                        <div class="absolute inset-0 opacity-40 mix-blend-color-burn">
+                            <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="Mosque background">
+                        </div>
+                        <div class="relative z-10">
+                            <span class="w-16 h-16 rounded-full bg-gold-premium/10 border border-gold-premium text-gold-premium flex items-center justify-center text-2xl mb-4 mx-auto animate-pulse"><i class="fa-solid fa-circle-play"></i></span>
+                            <p class="text-sm font-semibold text-white">Streaming Video Manasik...</p>
+                            <p class="text-xs text-gray-400 mt-1">Menggunakan jaringan server AS-SYIFA Cloud CDN.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIGITAL READER MODAL (FULL-SCREEN ENVIRONMENT) -->
+            <div id="digital-reader-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-0 md:p-6 backdrop-blur-xl bg-black/95">
+                <div class="w-full h-full md:max-w-4xl md:h-[90vh] md:rounded-2xl bg-neutral-900 border border-neutral-800 flex flex-col justify-between shadow-2xl relative overflow-hidden">
+                    
+                    <!-- Modal Header bar -->
+                    <div class="px-6 py-4 border-b border-neutral-800 flex items-center justify-between bg-neutral-950">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-gold-premium/10 flex items-center justify-center text-gold-premium border border-gold-premium/20">
+                                <i class="fa-solid fa-book"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-serif font-bold text-white leading-tight">Panduan Praktis Haji & Umrah 2026</h4>
+                                <span class="text-[9px] text-gray-500 uppercase tracking-widest font-bold">E-Reader Terintegrasi v1.0</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <!-- Close button -->
+                            <button onclick="closeDigitalReader()" class="w-10 h-10 rounded-lg bg-neutral-800 hover:bg-red-950 border border-neutral-700 hover:border-red-800 text-gray-400 hover:text-red-200 flex items-center justify-center transition-all" title="Tutup Pembaca">
+                                <i class="fa-solid fa-xmark text-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Inner Reader Platform -->
+                    <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between overflow-y-auto">
+                        <!-- Top Control Bar inside Reader -->
+                        <div class="flex flex-wrap items-center justify-between border-b border-neutral-800 pb-4 gap-4">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xs text-gray-400" id="reading-mode-badge"><i class="fa-solid fa-sun text-gold-premium"></i> Mode Terang</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <!-- Toggle Mode -->
+                                <button onclick="toggleReaderTheme()" class="w-9 h-9 rounded-lg bg-neutral-800 border border-neutral-700 text-gray-300 hover:text-white hover:border-gold-premium flex items-center justify-center transition-all" title="Ubah Mode Layar">
+                                    <i class="fa-solid fa-circle-half-stroke"></i>
+                                </button>
+                                <!-- Search -->
+                                <div class="relative">
+                                    <input type="text" id="book-search-input" placeholder="Cari isi materi..." class="bg-neutral-800 text-xs text-white placeholder-gray-500 pl-8 pr-4 py-2 rounded-lg border border-neutral-700 focus:outline-none focus:border-gold-premium transition-all w-44">
+                                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-xs text-gray-500"></i>
+                                </div>
+                                <!-- Bookmark Toggle -->
+                                <button onclick="toggleBookmarkCurrentPage()" class="w-9 h-9 rounded-lg bg-neutral-800 border border-neutral-700 text-gray-300 hover:text-gold-premium flex items-center justify-center transition-all" title="Tandai Halaman">
+                                    <i class="fa-regular fa-bookmark" id="bookmark-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Inner Book Canvas with scroll container -->
+                        <div class="my-6 p-6 sm:p-8 rounded-xl transition-all duration-300 flex-1 flex flex-col justify-between" id="book-canvas">
+                            <div id="book-content-container" class="space-y-4">
+                                <!-- Dynamic Content Rendered Here via JS -->
+                            </div>
+                        </div>
+
+                        <!-- Book Footer and Page Selector Navigation -->
+                        <div class="border-t border-neutral-800 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+                            <!-- Progress indicator -->
+                            <div class="w-full sm:w-auto flex items-center gap-3">
+                                <span class="text-xs text-gray-400">Progress:</span>
+                                <div class="w-24 sm:w-32 bg-neutral-800 h-2 rounded-full overflow-hidden border border-neutral-700">
+                                    <div class="bg-gold-premium h-full transition-all duration-300" id="book-reading-progress" style="width: 20%"></div>
+                                </div>
+                                <span class="text-xs text-white font-bold" id="book-reading-percentage">20%</span>
+                            </div>
+
+                            <!-- Prev/Next -->
+                            <div class="flex items-center gap-2">
+                                <button onclick="changeBookPage(-1)" class="px-3.5 py-1.5 rounded bg-neutral-800 text-white hover:bg-gold-premium hover:text-black border border-neutral-700 transition-all text-xs font-bold">
+                                    <i class="fa-solid fa-arrow-left mr-1"></i> Sebelumnya
+                                </button>
+                                <span class="text-xs text-white bg-neutral-800 px-3 py-1.5 rounded border border-neutral-700" id="book-page-indicator">Halaman 1 / 5</span>
+                                <button onclick="changeBookPage(1)" class="px-3.5 py-1.5 rounded bg-neutral-800 text-white hover:bg-gold-premium hover:text-black border border-neutral-700 transition-all text-xs font-bold">
+                                    Selanjutnya <i class="fa-solid fa-arrow-right ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bookmark dynamic banner -->
+                    <div id="bookmark-alert" class="hidden absolute top-16 left-6 right-6 bg-gold-premium text-black px-4 py-2 rounded-lg text-xs font-bold shadow-lg flex items-center justify-between z-20">
+                        <span><i class="fa-solid fa-circle-check"></i> Halaman disimpan ke Bookmark!</span>
+                        <button onclick="hideBookmarkAlert()" class="hover:text-neutral-700"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PLAZA HAJI AL-QOSBAH (INTERACTIVE MAP & WALKTHROUGH) -->
+    <section id="plaza-alqosbah" class="py-24 bg-neutral-900/40 relative border-t border-b border-neutral-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-premium">Latihan Praktik Riil</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-extrabold text-white mt-2">
+                    Plaza Haji Al-Qosbah
+                </h2>
+                <p class="text-gray-400 mt-4 text-sm font-light leading-relaxed">
+                    Arena simulasi manasik terlengkap di Gedebage, Kota Bandung. Jelajahi denah taktis interaktif dan ketahui fungsi setiap zona latihan manasik.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+                <!-- Left Handside: Interactive Plan SVG / Visual CSS Representation -->
+                <div class="lg:col-span-8 flex flex-col justify-between">
+                    <div class="p-6 rounded-2xl bg-[#0d0d0d] border border-neutral-800 shadow-2xl flex-grow flex flex-col justify-between">
+                        <div class="flex items-center justify-between border-b border-neutral-800 pb-4 mb-6">
+                            <span class="text-xs font-bold text-white uppercase"><i class="fa-solid fa-map-location-dot text-gold-premium mr-1.5"></i> Denah Taktis Interaktif</span>
+                            <span class="text-[10px] text-gray-400 italic">Hover/Klik area untuk informasi detail</span>
+                        </div>
+
+                        <!-- Map Visual using CSS grids of locations -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 min-h-[300px]" id="floorplan-grid">
+                            
+                            <!-- AREA 1 -->
+                            <div onclick="selectFloorArea(1)" class="cursor-pointer group rounded-xl p-4 border border-gold-premium/10 bg-neutral-900 hover:border-gold-premium hover:bg-gold-premium/5 transition-all duration-300 flex flex-col justify-between" id="area-card-1">
+                                <span class="w-7 h-7 rounded-full bg-gold-premium/10 text-gold-premium font-bold text-xs flex items-center justify-center border border-gold-premium/20 group-hover:bg-gold-premium group-hover:text-black transition-all">A1</span>
+                                <div class="mt-4">
+                                    <h4 class="text-sm font-serif font-bold text-white group-hover:text-gold-premium">Ruang Pembukaan & Materi</h4>
+                                    <span class="text-[10px] text-gray-500">Kapasitas 150 Jamaah</span>
+                                </div>
+                            </div>
+
+                            <!-- AREA 2 -->
+                            <div onclick="selectFloorArea(2)" class="cursor-pointer group rounded-xl p-4 border border-gold-premium/10 bg-neutral-900 hover:border-gold-premium hover:bg-gold-premium/5 transition-all duration-300 flex flex-col justify-between" id="area-card-2">
+                                <span class="w-7 h-7 rounded-full bg-gold-premium/10 text-gold-premium font-bold text-xs flex items-center justify-center border border-gold-premium/20 group-hover:bg-gold-premium group-hover:text-black transition-all">A2</span>
+                                <div class="mt-4">
+                                    <h4 class="text-sm font-serif font-bold text-white group-hover:text-gold-premium">Area Praktik Tawaf</h4>
+                                    <span class="text-[10px] text-gray-500">Replika Ka'bah Presisi</span>
+                                </div>
+                            </div>
+
+                            <!-- AREA 3 -->
+                            <div onclick="selectFloorArea(3)" class="cursor-pointer group rounded-xl p-4 border border-gold-premium/10 bg-neutral-900 hover:border-gold-premium hover:bg-gold-premium/5 transition-all duration-300 flex flex-col justify-between" id="area-card-3">
+                                <span class="w-7 h-7 rounded-full bg-gold-premium/10 text-gold-premium font-bold text-xs flex items-center justify-center border border-gold-premium/20 group-hover:bg-gold-premium group-hover:text-black transition-all">A3</span>
+                                <div class="mt-4">
+                                    <h4 class="text-sm font-serif font-bold text-white group-hover:text-gold-premium">Area Sa'i</h4>
+                                    <span class="text-[10px] text-gray-500">Koridor Safa-Marwah</span>
+                                </div>
+                            </div>
+
+                            <!-- AREA 4 -->
+                            <div onclick="selectFloorArea(4)" class="cursor-pointer group rounded-xl p-4 border border-gold-premium/10 bg-neutral-900 hover:border-gold-premium hover:bg-gold-premium/5 transition-all duration-300 flex flex-col justify-between" id="area-card-4">
+                                <span class="w-7 h-7 rounded-full bg-gold-premium/10 text-gold-premium font-bold text-xs flex items-center justify-center border border-gold-premium/20 group-hover:bg-gold-premium group-hover:text-black transition-all">A4</span>
+                                <div class="mt-4">
+                                    <h4 class="text-sm font-serif font-bold text-white group-hover:text-gold-premium">Ruang Perlengkapan</h4>
+                                    <span class="text-[10px] text-gray-500">Koper & Atribut Jamaah</span>
+                                </div>
+                            </div>
+
+                            <!-- AREA 5 -->
+                            <div onclick="selectFloorArea(5)" class="cursor-pointer group rounded-xl p-4 border border-gold-premium/10 bg-neutral-900 hover:border-gold-premium hover:bg-gold-premium/5 transition-all duration-300 flex flex-col justify-between" id="area-card-5">
+                                <span class="w-7 h-7 rounded-full bg-gold-premium/10 text-gold-premium font-bold text-xs flex items-center justify-center border border-gold-premium/20 group-hover:bg-gold-premium group-hover:text-black transition-all">A5</span>
+                                <div class="mt-4">
+                                    <h4 class="text-sm font-serif font-bold text-white group-hover:text-gold-premium">Ruang Ganti Jamaah</h4>
+                                    <span class="text-[10px] text-gray-500">Khusus Ganti Kain Ihram</span>
+                                </div>
+                            </div>
+
+                            <!-- AREA 6 -->
+                            <div onclick="selectFloorArea(6)" class="cursor-pointer group rounded-xl p-4 border border-gold-premium/10 bg-neutral-900 hover:border-gold-premium hover:bg-gold-premium/5 transition-all duration-300 flex flex-col justify-between" id="area-card-6">
+                                <span class="w-7 h-7 rounded-full bg-gold-premium/10 text-gold-premium font-bold text-xs flex items-center justify-center border border-gold-premium/20 group-hover:bg-gold-premium group-hover:text-black transition-all">A6</span>
+                                <div class="mt-4">
+                                    <h4 class="text-sm font-serif font-bold text-white group-hover:text-gold-premium">Ruang Istirahat</h4>
+                                    <span class="text-[10px] text-gray-500">Fasilitas AC & Teh Hangat</span>
+                                </div>
+                            </div>
+
+                            <!-- AREA 7 -->
+                            <div onclick="selectFloorArea(7)" class="cursor-pointer group rounded-xl p-4 border border-gold-premium/10 bg-neutral-900 hover:border-gold-premium hover:bg-gold-premium/5 transition-all duration-300 flex flex-col justify-between" id="area-card-7">
+                                <span class="w-7 h-7 rounded-full bg-gold-premium/10 text-gold-premium font-bold text-xs flex items-center justify-center border border-gold-premium/20 group-hover:bg-gold-premium group-hover:text-black transition-all">A7</span>
+                                <div class="mt-4">
+                                    <h4 class="text-sm font-serif font-bold text-white group-hover:text-gold-premium">Ruang Admin</h4>
+                                    <span class="text-[10px] text-gray-500">Informasi & Konsultasi</span>
+                                </div>
+                            </div>
+
+                            <!-- AREA 8 -->
+                            <div onclick="selectFloorArea(8)" class="cursor-pointer group rounded-xl p-4 border border-gold-premium/10 bg-neutral-900 hover:border-gold-premium hover:bg-gold-premium/5 transition-all duration-300 flex flex-col justify-between" id="area-card-8">
+                                <span class="w-7 h-7 rounded-full bg-gold-premium/10 text-gold-premium font-bold text-xs flex items-center justify-center border border-gold-premium/20 group-hover:bg-gold-premium group-hover:text-black transition-all">A8</span>
+                                <div class="mt-4">
+                                    <h4 class="text-sm font-serif font-bold text-white group-hover:text-gold-premium">Toilet & Wudhu</h4>
+                                    <span class="text-[10px] text-gray-500">Bersih & Nyaman</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Handside: Virtual Walkthrough detail panel -->
+                <div class="lg:col-span-4 flex flex-col justify-between">
+                    <div id="walkthrough-panel" class="p-6 rounded-2xl glass-premium border border-gold-premium/25 shadow-xl flex-grow flex flex-col justify-between space-y-6">
+                        <!-- Head info -->
+                        <div>
+                            <span class="text-[10px] uppercase font-bold tracking-widest text-gold-premium" id="walkthrough-badge">Informasi Zona</span>
+                            <h3 class="text-2xl font-serif font-bold text-white mt-1" id="walkthrough-title">Selamat Datang di Al-Qosbah</h3>
+                            <p class="text-xs text-gray-300 leading-relaxed mt-3" id="walkthrough-desc">
+                                Silakan pilih salah satu kode zona di samping kiri untuk memulai penelusuran digital walkthrough dan mengetahui spesifikasi, kegunaan, serta tata tertib di area tersebut selama program praktik berlangsung.
+                            </p>
+                        </div>
+
+                        <!-- Walkthrough Interactive Features checklist -->
+                        <div class="space-y-3" id="walkthrough-features">
+                            <div class="flex items-center gap-3 text-xs text-gray-300">
+                                <i class="fa-solid fa-circle-info text-gold-premium w-4"></i>
+                                <span>Informasi detail fungsi fasilitas</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-300">
+                                <i class="fa-solid fa-chalkboard-user text-gold-premium w-4"></i>
+                                <span>Bimbingan penatua manasik</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA simulated link -->
+                        <div class="pt-4 border-t border-neutral-800">
+                            <a href="https://wa.me/6282112886401" target="_blank" class="w-full py-3 rounded-lg bg-neutral-900 border border-gold-premium/30 text-gold-300 hover:bg-gold-premium hover:text-black font-bold text-xs uppercase text-center transition-all duration-300 block">
+                                <i class="fa-solid fa-location-crosshairs mr-1"></i> Rencanakan Kunjungan Praktik
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIM BIMBINGAN MANASIK -->
+    <section id="tim-bimbingan" class="py-24 bg-[#080808] relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-premium">Asatidzah & Tim Ahli</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-extrabold text-white mt-2">
+                    Tim Bimbingan Manasik
+                </h2>
+                <p class="text-gray-400 mt-4 text-sm font-light">
+                    Dibimbing langsung oleh narasumber keagamaan mumpuni yang memastikan keabsahan dan keikhlasan ibadah jamaah sesuai tuntunan sunnah Rasulullah SAW.
+                </p>
+            </div>
+
+            <!-- Key Figures: Narasumber & Moderator -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+                
+                <!-- NARASUMBER -->
+                <div class="p-6 rounded-2xl bg-neutral-900 border border-gold-premium/20 flex flex-col sm:flex-row items-center sm:items-start gap-6 relative overflow-hidden shadow-xl">
+                    <div class="absolute top-0 right-0 bg-gold-premium text-black text-[9px] font-bold tracking-widest uppercase px-3 py-1 rounded-bl">Narasumber Utama</div>
+                    <div class="w-24 h-24 rounded-full bg-neutral-800 border-2 border-gold-premium flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-user-tie text-4xl text-gold-premium"></i>
+                    </div>
+                    <div class="text-center sm:text-left space-y-2 mt-4 sm:mt-0">
+                        <span class="text-[10px] font-bold tracking-widest text-gold-premium uppercase">Akademisi & Pembimbing Fiqih</span>
+                        <h3 class="text-xl font-serif font-bold text-white">H. Ridwan Karim, M.Ag.</h3>
+                        <p class="text-xs text-gray-400">Pakar Fiqih Ibadah Umrah & Kontemporer. Berpengalaman membimbing puluhan kloter umrah dengan mengutamakan prinsip rukun kemurnian sunnah.</p>
+                    </div>
+                </div>
+
+                <!-- MODERATOR -->
+                <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800 flex flex-col sm:flex-row items-center sm:items-start gap-6 relative overflow-hidden shadow-xl">
+                    <div class="absolute top-0 right-0 bg-neutral-850 text-gray-400 text-[9px] font-bold tracking-widest uppercase px-3 py-1 rounded-bl">Moderator</div>
+                    <div class="w-24 h-24 rounded-full bg-neutral-800 border-2 border-neutral-700 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-user-check text-4xl text-gray-400"></i>
+                    </div>
+                    <div class="text-center sm:text-left space-y-2 mt-4 sm:mt-0">
+                        <span class="text-[10px] font-bold tracking-widest text-gold-premium uppercase">Moderator Sesi & Koordinator</span>
+                        <h3 class="text-xl font-serif font-bold text-white">Ust. Faturrahman Helmi Sugara, S.E.</h3>
+                        <p class="text-xs text-gray-400">Mengelola jalannya bimbingan manasik, menjembatani dialog interaktif, tanya jawab fikih praktis demi ketenangan pikiran seluruh jamaah.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Tim Pembimbing Roles Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div class="p-4 rounded-xl bg-neutral-900/60 border border-neutral-850 text-center space-y-2">
+                    <span class="text-xl text-gold-premium"><i class="fa-solid fa-book-quran"></i></span>
+                    <h4 class="text-xs font-serif font-bold text-white">Pembimbing Ibadah</h4>
+                    <p class="text-[10px] text-gray-400">Memastikan rukun & wajib umrah sah.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-neutral-900/60 border border-neutral-850 text-center space-y-2">
+                    <span class="text-xl text-gold-premium"><i class="fa-solid fa-passport"></i></span>
+                    <h4 class="text-xs font-serif font-bold text-white">Tim Handling</h4>
+                    <p class="text-[10px] text-gray-400">Urus koper, boarding, dan imigrasi.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-neutral-900/60 border border-neutral-850 text-center space-y-2">
+                    <span class="text-xl text-gold-premium"><i class="fa-solid fa-street-view"></i></span>
+                    <h4 class="text-xs font-serif font-bold text-white">Tour Leader</h4>
+                    <p class="text-[10px] text-gray-400">Pendamping rute ziarah & perjalanan.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-neutral-900/60 border border-neutral-850 text-center space-y-2">
+                    <span class="text-xl text-gold-premium"><i class="fa-solid fa-user-doctor"></i></span>
+                    <h4 class="text-xs font-serif font-bold text-white">Tim Medis</h4>
+                    <p class="text-[10px] text-gray-400">Siap siaga kesehatan 24 jam penuh.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-neutral-900/60 border border-neutral-850 text-center space-y-2">
+                    <span class="text-xl text-gold-premium"><i class="fa-solid fa-laptop-medical"></i></span>
+                    <h4 class="text-xs font-serif font-bold text-white">Tim Manasik</h4>
+                    <p class="text-[10px] text-gray-400">Fasilitator modul & bimbingan digital.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORGANIGRAM PPIU AS-SYIFA (COMPREHENSIVE STRUCTURE) -->
+    <section id="organigram" class="py-24 bg-neutral-900/40 relative border-t border-b border-neutral-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-premium">Tata Kelola Organisasi</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-extrabold text-white mt-2">
+                    Organigram PPIU AS-SYIFA
+                </h2>
+                <p class="text-gray-400 mt-4 text-sm font-light">
+                    Sistem kepemimpinan yang solid, amanah, dan berintegritas demi melahirkan standar pelayanan travel umrah internasional terbaik.
+                </p>
+            </div>
+
+            <!-- Responsive Organizational Chart Representation -->
+            <div class="p-6 sm:p-10 rounded-2xl bg-neutral-950 border border-neutral-800 overflow-x-auto shadow-2xl">
+                <div class="min-w-[800px] flex flex-col items-center py-6">
+                    
+                    <!-- LEVEL 1: Komisaris -->
+                    <div class="flex flex-col items-center">
+                        <div class="px-6 py-4 rounded-xl border border-gold-premium bg-gradient-to-tr from-[#1a1405] to-neutral-900 text-center w-64 shadow-lg">
+                            <span class="text-[9px] text-gold-premium font-bold uppercase tracking-widest">Komisaris</span>
+                            <h4 class="text-sm font-serif font-bold text-white mt-1">Faturohman Helmi Sugara</h4>
+                        </div>
+                        <!-- Connector -->
+                        <div class="w-0.5 h-8 bg-gold-premium/40"></div>
+                    </div>
+
+                    <!-- LEVEL 2: Direktur Utama -->
+                    <div class="flex flex-col items-center">
+                        <div class="px-6 py-4 rounded-xl border border-gold-premium/60 bg-gradient-to-tr from-[#141005] to-neutral-900 text-center w-64 shadow-lg">
+                            <span class="text-[9px] text-gold-premium font-bold uppercase tracking-widest">Direktur Utama</span>
+                            <h4 class="text-sm font-serif font-bold text-white mt-1">Abdullah Avicena</h4>
+                        </div>
+                        <!-- Connector -->
+                        <div class="w-0.5 h-8 bg-gold-premium/40"></div>
+                    </div>
+
+                    <!-- LEVEL 3: Komite Pengaman Ketidakberpihakan -->
+                    <div class="flex flex-col items-center relative">
+                        <div class="absolute -right-72 -top-4 px-6 py-3.5 rounded-xl border border-neutral-800 bg-neutral-900 text-center w-64 shadow-md">
+                            <span class="text-[9px] text-gray-400 font-bold uppercase tracking-widest">Komite Pengaman</span>
+                            <h4 class="text-xs font-serif font-bold text-white mt-0.5">Roudotul Syifa</h4>
+                        </div>
+                        <!-- Central card of LEVEL 3: Pengambil Keputusan -->
+                        <div class="px-6 py-4 rounded-xl border border-gold-premium/60 bg-gradient-to-tr from-[#141005] to-neutral-900 text-center w-64 shadow-lg z-10">
+                            <span class="text-[9px] text-gold-premium font-bold uppercase tracking-widest">Pengambil Keputusan</span>
+                            <h4 class="text-sm font-serif font-bold text-white mt-1">Zia' Ur Rahman</h4>
+                        </div>
+                        <!-- Connector -->
+                        <div class="w-0.5 h-8 bg-gold-premium/40"></div>
+                    </div>
+
+                    <!-- LEVEL 4: Manajer Divisi (Side by Side) -->
+                    <div class="w-full flex justify-center gap-16 relative">
+                        <!-- Horizontal line connecting the managers -->
+                        <div class="absolute top-0 left-1/4 right-1/4 h-0.5 bg-gold-premium/40"></div>
+                        
+                        <!-- Manajer Administrasi Umum & Keuangan -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-0.5 h-6 bg-gold-premium/40"></div>
+                            <div class="px-6 py-4 rounded-xl border border-neutral-800 bg-neutral-900 text-center w-64 shadow-md">
+                                <span class="text-[9px] text-gray-400 font-bold uppercase tracking-widest">Manajer Keuangan</span>
+                                <h4 class="text-sm font-serif font-bold text-white mt-1">Azizah Nurzahra Zaria</h4>
+                            </div>
+                        </div>
+
+                        <!-- Manajer Operasional -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-0.5 h-6 bg-gold-premium/40"></div>
+                            <div class="px-6 py-4 rounded-xl border border-neutral-800 bg-neutral-900 text-center w-64 shadow-md">
+                                <span class="text-[9px] text-gray-400 font-bold uppercase tracking-widest">Manajer Operasional</span>
+                                <h4 class="text-sm font-serif font-bold text-white mt-1">Anjani Naisya Utami</h4>
+                            </div>
+                            <!-- Connector down from Operasional to Evaluator -->
+                            <div class="w-0.5 h-8 bg-gold-premium/40"></div>
+                            
+                            <!-- LEVEL 5: Evaluator -->
+                            <div class="px-6 py-4 rounded-xl border border-neutral-800 bg-neutral-900 text-center w-64 shadow-sm">
+                                <span class="text-[9px] text-gray-400 font-bold uppercase tracking-widest">Evaluator Pelayanan</span>
+                                <h4 class="text-xs font-serif font-bold text-white mt-1">Ricky Mochammad Sidiek</h4>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOKUMENTASI KEGIATAN (FILTERABLE MASONRY GALLERY) -->
+    <section id="dokumentasi" class="py-24 bg-neutral-950 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-premium">Momen Kegiatan</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-extrabold text-white mt-2">
+                    Dokumentasi Kegiatan
+                </h2>
+                <p class="text-gray-400 mt-4 text-sm font-light">
+                    Melihat kembali rangkuman foto-foto eksklusif kegiatan pembinaan, praktik simulasi di Al-Qosbah, hingga perjalanan di Masjidil Haram.
+                </p>
+            </div>
+
+            <!-- Gallery Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
+                <button onclick="filterGallery('semua')" class="gallery-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all bg-gold-premium text-black">Semua</button>
+                <button onclick="filterGallery('manasik')" class="gallery-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-gray-400 hover:text-white bg-neutral-900">Bimbingan Manasik</button>
+                <button onclick="filterGallery('alqosbah')" class="gallery-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-gray-400 hover:text-white bg-neutral-900">Praktik Al-Qosbah</button>
+                <button onclick="filterGallery('bagasi')" class="gallery-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-gray-400 hover:text-white bg-neutral-900">Koleksi Koper</button>
+                <button onclick="filterGallery('rapat')" class="gallery-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-gray-400 hover:text-white bg-neutral-900">Koordinasi Panitia</button>
+                <button onclick="filterGallery('makkah')" class="gallery-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-gray-400 hover:text-white bg-neutral-900">Dokumentasi Makkah</button>
+                <button onclick="filterGallery('madinah')" class="gallery-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-gray-400 hover:text-white bg-neutral-900">Dokumentasi Madinah</button>
+            </div>
+
+            <!-- Masonry Grid Gallery -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="masonry-gallery">
+                
+                <!-- Item 1 (Manasik) -->
+                <div class="gallery-item manasik overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 group shadow-md transition-all duration-350">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=600&h=400" class="w-full h-[250px] object-cover group-hover:scale-105 transition-all duration-500" alt="Bimbingan manasik" onerror="this.src='https://placehold.co/600x400/0d0d0d/d4af37?text=Manasik+Materi'">
+                    <div class="p-4">
+                        <span class="text-[10px] text-gold-premium font-bold uppercase">Bimbingan Manasik</span>
+                        <h4 class="text-sm font-serif font-bold text-white mt-1">Penyampaian Materi Teori Umrah</h4>
+                    </div>
+                </div>
+
+                <!-- Item 2 (Al-Qosbah) -->
+                <div class="gallery-item alqosbah overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 group shadow-md transition-all duration-350">
+                    <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&q=80&w=600&h=400" class="w-full h-[250px] object-cover group-hover:scale-105 transition-all duration-500" alt="Plaza Al-Qosbah" onerror="this.src='https://placehold.co/600x400/0d0d0d/d4af37?text=Praktik+Alqosbah'">
+                    <div class="p-4">
+                        <span class="text-[10px] text-gold-premium font-bold uppercase">Praktik Lapangan</span>
+                        <h4 class="text-sm font-serif font-bold text-white mt-1">Simulasi Thawaf Mengitari Ka'bah</h4>
+                    </div>
+                </div>
+
+                <!-- Item 3 (Bagasi) -->
+                <div class="gallery-item bagasi overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 group shadow-md transition-all duration-350">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=600&h=400" class="w-full h-[250px] object-cover group-hover:scale-105 transition-all duration-500" alt="Pengumpulan koper" onerror="this.src='https://placehold.co/600x400/0d0d0d/d4af37?text=Koleksi+Koper'">
+                    <div class="p-4">
+                        <span class="text-[10px] text-gold-premium font-bold uppercase">Koleksi Koper</span>
+                        <h4 class="text-sm font-serif font-bold text-white mt-1">Proses Timbang & Pengemasan Koper</h4>
+                    </div>
+                </div>
+
+                <!-- Item 4 (Rapat) -->
+                <div class="gallery-item rapat overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 group shadow-md transition-all duration-350">
+                    <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&q=80&w=600&h=400" class="w-full h-[250px] object-cover group-hover:scale-105 transition-all duration-500" alt="Koordinasi panitia" onerror="this.src='https://placehold.co/600x400/0d0d0d/d4af37?text=Rapat+Koordinasi'">
+                    <div class="p-4">
+                        <span class="text-[10px] text-gold-premium font-bold uppercase">Koordinasi Panitia</span>
+                        <h4 class="text-sm font-serif font-bold text-white mt-1">Rapat Pleno Pemantapan Berangkat</h4>
+                    </div>
+                </div>
+
+                <!-- Item 5 (Makkah) -->
+                <div class="gallery-item makkah overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 group shadow-md transition-all duration-350">
+                    <img src="https://images.unsplash.com/photo-1591604021695-0c69b7c05981?auto=format&fit=crop&q=80&w=600&h=400" class="w-full h-[250px] object-cover group-hover:scale-105 transition-all duration-500" alt="Makkah" onerror="this.src='https://placehold.co/600x400/0d0d0d/d4af37?text=Dokumentasi+Makkah'">
+                    <div class="p-4">
+                        <span class="text-[10px] text-gold-premium font-bold uppercase">Makkah Al-Mukarramah</span>
+                        <h4 class="text-sm font-serif font-bold text-white mt-1">Pelaksanaan Umrah di Masjidil Haram</h4>
+                    </div>
+                </div>
+
+                <!-- Item 6 (Madinah) -->
+                <div class="gallery-item madinah overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 group shadow-md transition-all duration-350">
+                    <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&q=80&w=600&h=400" class="w-full h-[250px] object-cover group-hover:scale-105 transition-all duration-500" alt="Madinah" onerror="this.src='https://placehold.co/600x400/0d0d0d/d4af37?text=Dokumentasi+Madinah'">
+                    <div class="p-4">
+                        <span class="text-[10px] text-gold-premium font-bold uppercase">Madinah Al-Munawwarah</span>
+                        <h4 class="text-sm font-serif font-bold text-white mt-1">Ziarah Makam Rasulullah di Nabawi</h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SURVEI KEPUASAN JAMAAH (DASHBOARD KINERJA INTERAKTIF) -->
+    <section id="survei" class="py-24 bg-neutral-900/40 relative border-t border-b border-neutral-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-premium">Evaluasi Pelayanan</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-extrabold text-white mt-2">
+                    Survei Kepuasan Jamaah
+                </h2>
+                <p class="text-gray-400 mt-4 text-sm font-light leading-relaxed">
+                    Setiap masukan jamaah menjadi bagian penting dalam peningkatan kualitas pelayanan dan pembinaan jamaah PPIU AS-SYIFA. Tinjau nilai kepuasan terkini atau kirim umpan balik baru.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+                <!-- Left Handside: Live Satisfaction statistics dashboard -->
+                <div class="lg:col-span-5 flex flex-col justify-between">
+                    <div class="p-6 sm:p-8 rounded-2xl bg-neutral-950 border border-neutral-800 shadow-xl flex-grow flex flex-col justify-between space-y-6">
+                        <div>
+                            <span class="text-[9px] text-gold-premium font-bold uppercase tracking-widest">Dashboard Kepuasan</span>
+                            <h3 class="text-xl font-serif font-bold text-white mt-1">Statistik Real-Time Pelayanan</h3>
+                        </div>
+
+                        <!-- Graphical Gauge / Custom representation of satisfaction -->
+                        <div class="flex items-center justify-center py-6">
+                            <div class="relative w-44 h-44 flex items-center justify-center">
+                                <!-- Circular Gauge Background via SVG -->
+                                <svg class="w-full h-full transform -rotate-90">
+                                    <circle cx="88" cy="88" r="75" stroke="#1c1c1c" stroke-width="12" fill="transparent" />
+                                    <circle cx="88" cy="88" r="75" stroke="#D4AF37" stroke-width="12" fill="transparent" stroke-dasharray="471" stroke-dashoffset="14" id="stat-gauge-circle" class="transition-all duration-1000" />
+                                </svg>
+                                <div class="absolute text-center">
+                                    <span class="block text-4xl font-extrabold text-white font-serif" id="stat-rating-text">9.7</span>
+                                    <span class="block text-[10px] text-gray-400 uppercase tracking-widest mt-1">Skala 10.0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mini stats listing -->
+                        <div class="grid grid-cols-2 gap-4 border-t border-neutral-800 pt-6">
+                            <div class="text-center">
+                                <span class="block text-xl font-bold text-white font-mono" id="stat-respondent-count">1,842</span>
+                                <span class="block text-[10px] text-gray-500 uppercase">Responden</span>
+                            </div>
+                            <div class="text-center">
+                                <span class="block text-xl font-bold text-gold-premium font-mono">98.2%</span>
+                                <span class="block text-[10px] text-gray-500 uppercase">Merekomendasikan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Handside: Interactive Rating Form -->
+                <div class="lg:col-span-7 flex flex-col justify-between">
+                    <form id="feedback-form" onsubmit="submitPilgrimFeedback(event)" class="p-6 sm:p-8 rounded-2xl bg-neutral-900 border border-neutral-850 shadow-2xl space-y-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <span class="text-[9px] text-gold-premium font-bold uppercase tracking-widest">Kirim Umpan Balik</span>
+                            <h3 class="text-xl font-serif font-bold text-white mt-1 mb-4">Formulir Evaluasi</h3>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Nama Jamaah</label>
+                                    <input type="text" id="feedback-name" required placeholder="Masukkan nama Anda..." class="w-full bg-neutral-950 text-sm text-white px-4 py-2.5 rounded-lg border border-neutral-800 focus:outline-none focus:border-gold-premium transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Nomor Telepon/WA</label>
+                                    <input type="tel" id="feedback-phone" required placeholder="Contoh: 08123456..." class="w-full bg-neutral-950 text-sm text-white px-4 py-2.5 rounded-lg border border-neutral-800 focus:outline-none focus:border-gold-premium transition-all">
+                                </div>
+                            </div>
+
+                            <!-- Rating stars -->
+                            <div class="mt-4">
+                                <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Nilai Kepuasan Layanan</label>
+                                <div class="flex items-center gap-1.5" id="rating-stars-container">
+                                    <button type="button" onclick="selectFormRating(1)" class="text-2xl text-gray-600 hover:text-gold-premium transition-all"><i class="fa-solid fa-star"></i></button>
+                                    <button type="button" onclick="selectFormRating(2)" class="text-2xl text-gray-600 hover:text-gold-premium transition-all"><i class="fa-solid fa-star"></i></button>
+                                    <button type="button" onclick="selectFormRating(3)" class="text-2xl text-gray-600 hover:text-gold-premium transition-all"><i class="fa-solid fa-star"></i></button>
+                                    <button type="button" onclick="selectFormRating(4)" class="text-2xl text-gray-600 hover:text-gold-premium transition-all"><i class="fa-solid fa-star"></i></button>
+                                    <button type="button" onclick="selectFormRating(5)" class="text-2xl text-gray-600 hover:text-gold-premium transition-all"><i class="fa-solid fa-star"></i></button>
+                                </div>
+                            </div>
+
+                            <div class="mt-4">
+                                <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Ulasan / Kritik & Saran</label>
+                                <textarea id="feedback-comments" required rows="3" placeholder="Bagikan kesan pelayanan manasik, bimbingan, koper, keberangkatan bersama kami..." class="w-full bg-neutral-950 text-sm text-white px-4 py-2.5 rounded-lg border border-neutral-800 focus:outline-none focus:border-gold-premium transition-all"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                            <!-- Dummy QR Code simulation -->
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-white rounded p-1 flex items-center justify-center shrink-0">
+                                    <!-- A representation of QR using grid or Fontawesome -->
+                                    <i class="fa-solid fa-qrcode text-black text-3xl"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] text-white font-bold">QR Code Evaluasi Resmi</span>
+                                    <span class="block text-[9px] text-gray-400">Scan untuk akses survei mobile cepat</span>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-full sm:w-auto px-6 py-3 rounded-lg bg-gold-premium hover:bg-gold-600 text-black font-extrabold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i> ISI SURVEI KEPUASAN JAMAAH
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAK & FOOTER -->
+    <section id="kontak" class="py-24 bg-[#050505] relative border-t border-neutral-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Left Details: Brand, Tagline, Address -->
+                <div class="lg:col-span-5 space-y-6">
+                    <a href="#" class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-gold-600 to-gold-300 flex items-center justify-center shadow-lg border border-gold-400">
+                            <span class="text-black font-extrabold text-lg tracking-widest font-serif">AS</span>
+                        </div>
+                        <div>
+                            <span class="block text-xl font-serif font-bold text-white tracking-wider">PPIU AS-SYIFA</span>
+                            <span class="block text-[10px] text-gold-300 tracking-widest font-semibold uppercase">Jamaah Learning Center</span>
+                        </div>
+                    </a>
+
+                    <p class="text-xs text-gray-400 leading-relaxed font-light">
+                        Membangun peradaban umrah modern, profesional, dan murni sesuai sunnah. Solusi digital satu pintu pendampingan serta pelayanan jamaah terlengkap sejak tahun pendaftaran hingga pelaporan evaluasi.
+                    </p>
+
+                    <!-- Contact details -->
+                    <div class="space-y-3 pt-4">
+                        <div class="flex items-start gap-3">
+                            <span class="w-8 h-8 rounded bg-neutral-900 border border-neutral-800 text-gold-premium flex items-center justify-center text-sm shrink-0"><i class="fa-solid fa-building"></i></span>
+                            <div>
+                                <span class="block text-[10px] text-gray-500 uppercase font-bold">Alamat Kantor Pusat</span>
+                                <span class="block text-xs text-white">Jl. Soekarno Hatta No. 518, Kota Bandung, Jawa Barat</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="w-8 h-8 rounded bg-neutral-900 border border-neutral-800 text-gold-premium flex items-center justify-center text-sm shrink-0"><i class="fa-solid fa-map-location-dot"></i></span>
+                            <div>
+                                <span class="block text-[10px] text-gray-500 uppercase font-bold">Lokasi Praktik Manasik</span>
+                                <span class="block text-xs text-white">Plaza Haji Al-Qosbah, Gedebage, Kota Bandung, Jawa Barat</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="w-8 h-8 rounded bg-neutral-900 border border-neutral-800 text-gold-premium flex items-center justify-center text-sm shrink-0"><i class="fa-solid fa-phone"></i></span>
+                            <div>
+                                <span class="block text-[10px] text-gray-500 uppercase font-bold">Hubungi Kontak Layanan</span>
+                                <a href="tel:+6282112886401" class="block text-xs text-white hover:text-gold-premium transition-all">+62 821-1288-6401</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="w-8 h-8 rounded bg-neutral-900 border border-neutral-800 text-gold-premium flex items-center justify-center text-sm shrink-0"><i class="fa-solid fa-envelope"></i></span>
+                            <div>
+                                <span class="block text-[10px] text-gray-500 uppercase font-bold">Surel Resmi Perusahaan</span>
+                                <a href="mailto:ppiuassyifa37@gmail.com" class="block text-xs text-white hover:text-gold-premium transition-all">ppiuassyifa37@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Details: Interactive Contact Form and Google Map Simulation -->
+                <div class="lg:col-span-7 flex flex-col justify-between space-y-6">
+                    <!-- Elegant Custom visual representing Location Map -->
+                    <div class="rounded-xl overflow-hidden border border-neutral-800 bg-neutral-950 p-4 relative min-h-[220px] flex items-center justify-center text-center">
+                        <div class="absolute inset-0 bg-neutral-900/60 mix-blend-color-dodge">
+                            <!-- Custom grid simulation to resemble map paths -->
+                            <div class="w-full h-full opacity-10" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 20px 20px;"></div>
+                        </div>
+                        <div class="relative z-10 space-y-3">
+                            <span class="w-12 h-12 rounded-full bg-gold-premium/10 border border-gold-premium text-gold-premium flex items-center justify-center text-xl mx-auto"><i class="fa-solid fa-map-pin"></i></span>
+                            <h4 class="text-sm font-serif font-bold text-white">Integrasi Peta Plaza Haji Al-Qosbah & Kantor</h4>
+                            <p class="text-xs text-gray-400 max-w-sm mx-auto">Klik tombol berikut untuk membuka peta rute navigasi Google Maps secara langsung di smartphone Anda.</p>
+                            <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gold-premium text-black text-xs font-bold uppercase transition-all hover:bg-gold-600"><i class="fa-solid fa-location-arrow"></i> Petunjuk Arah Jalan</a>
+                        </div>
+                    </div>
+
+                    <!-- Social Media link shortcuts -->
+                    <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4">
+                        <a href="https://instagram.com/ppiu_assyifa" target="_blank" class="w-11 h-11 rounded-lg bg-neutral-900 border border-neutral-800 text-gray-400 hover:text-gold-premium hover:border-gold-premium flex items-center justify-center text-lg transition-all"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@ppiu_assyifa" target="_blank" class="w-11 h-11 rounded-lg bg-neutral-900 border border-neutral-800 text-gray-400 hover:text-gold-premium hover:border-gold-premium flex items-center justify-center text-lg transition-all"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/6282112886401" target="_blank" class="w-11 h-11 rounded-lg bg-neutral-900 border border-neutral-800 text-gray-400 hover:text-gold-premium hover:border-gold-premium flex items-center justify-center text-lg transition-all"><i class="fab fa-whatsapp"></i></a>
+                        <a href="http://www.ppiuassyifa.co.id" target="_blank" class="px-4 h-11 rounded-lg bg-neutral-900 border border-neutral-800 text-xs font-bold text-gray-400 hover:text-gold-premium hover:border-gold-premium flex items-center justify-center gap-1.5 transition-all"><i class="fa-solid fa-globe"></i> www.ppiuassyifa.co.id</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- COPYRIGHT SECTION -->
+            <div class="border-t border-neutral-850/60 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-[11px] text-gray-500 text-center md:text-left">
+                    &copy; 2026 PPIU AS-SYIFA. Hak Cipta Dilindungi Undang-Undang. <br class="sm:hidden"> Penyelenggara Perjalanan Ibadah Umrah Resmi Kementerian Agama RI.
+                </p>
+                <div class="flex items-center gap-4 text-[10px] text-gray-500 font-bold uppercase tracking-wider">
+                    <a href="#profil" class="hover:text-gold-premium transition-all">Sarat Ketentuan</a>
+                    <span>&bull;</span>
+                    <a href="#manasik-digital" class="hover:text-gold-premium transition-all">Kebijakan Privasi</a>
+                    <span>&bull;</span>
+                    <a href="#survei" class="hover:text-gold-premium transition-all">Keamanan Digital</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ROBUST CLIENT INTERACTION ENGINE (JAVASCRIPT) -->
+    <script>
+        // Digital Manasik Book Content Source (Structured 5-page manual)
+        const manasikBookPages = [
+            {
+                chapter: "BAB 1",
+                title: "Persiapan & Niat Ihram",
+                content: `
+                    <p class='text-sm text-gray-300 leading-relaxed mb-4'>Sebelum memulai perjalanan suci, jamaah diwajibkan melakukan rukun pertama yaitu ber-ihram di tempat miqat yang telah ditentukan. Tata cara pengamalannya adalah:</p>
+                    <ul class='space-y-2 text-xs text-gray-400 list-disc pl-5 mb-4'>
+                        <li>Membersihkan diri dengan mandi sunnah ihram, memotong kuku, dan merapikan jenggot/kumis.</li>
+                        <li>Mengenakan dua lembar kain ihram putih tanpa jahitan bagi pria, dan pakaian penutup aurat sempurna bagi wanita.</li>
+                        <li>Melaksanakan salat sunnah ihram dua rakaat sebelum melafalkan niat.</li>
+                    </ul>
+                    <div class='p-4 rounded-lg bg-neutral-950 border border-gold-premium/15 text-xs text-center'>
+                        <span class='block text-gold-premium font-bold mb-1'>Lafadz Doa Niat Ihram Umrah:</span>
+                        <p class='italic text-white text-sm font-serif mb-1'>“Labbaika 'umratan”</p>
+                        <p class='text-gray-400'>(Aku sambut panggilan-Mu ya Allah untuk berumrah)</p>
+                    </div>
+                `
+            },
+            {
+                chapter: "BAB 2",
+                title: "Panduan Praktik Tawaf",
+                content: `
+                    <p class='text-sm text-gray-300 leading-relaxed mb-4'>Tawaf adalah mengitari Ka'bah sebanyak 7 kali putaran berlawanan arah jarum jam, dimulai dan diakhiri sejajar Hajar Aswad.</p>
+                    <ul class='space-y-2 text-xs text-gray-400 list-disc pl-5 mb-4'>
+                        <li>Harus dalam kondisi suci sempurna dari hadas kecil maupun besar.</li>
+                        <li>Bagi pria, sunnah menyampirkan kain ihram di bawah ketiak kanan (Idhtiba) dan melangkah cepat pada 3 putaran pertama.</li>
+                        <li>Setiap kali sejajar Hajar Aswad, menghadapkan tangan kanan dan mengucapkan <i>"Bismillahi Allahu Akbar"</i> lalu mengecupnya jika memungkinkan.</li>
+                    </ul>
+                    <div class='p-4 rounded-lg bg-neutral-950 border border-gold-premium/15 text-xs text-center'>
+                        <span class='block text-gold-premium font-bold mb-1'>Doa Utama Antara Rukun Yamani & Hajar Aswad:</span>
+                        <p class='italic text-white text-sm font-serif mb-1'>“Rabbana aatina fid-dunya hasanatan wa fil-akhirati hasanatan waqina 'adzaban-nar.”</p>
+                    </div>
+                `
+            },
+            {
+                chapter: "BAB 3",
+                title: "Panduan Sa'i Bukit Safa - Marwah",
+                content: `
+                    <p class='text-sm text-gray-300 leading-relaxed mb-4'>Sa'i adalah berjalan kaki sebanyak 7 lintasan bolak-balik antara bukit Safa dan bukit Marwah yang melambangkan perjuangan ibunda Hajar mencari air zam-zam.</p>
+                    <ul class='space-y-2 text-xs text-gray-400 list-disc pl-5 mb-4'>
+                        <li>Dimulai dari bukit Safa dan diakhiri di bukit Marwah.</li>
+                        <li>Satu lintasan dihitung dari Safa ke Marwah (lintasan 1), lalu Marwah ke Safa (lintasan 2), dst.</li>
+                        <li>Disunnahkan melakukan lari-lari kecil (Raml) bagi pria di antara dua pilar lampu hijau.</li>
+                    </ul>
+                    <div class='p-4 rounded-lg bg-neutral-950 border border-gold-premium/15 text-xs text-center'>
+                        <span class='block text-gold-premium font-bold mb-1'>Doa Naik ke Atas Bukit Safa:</span>
+                        <p class='italic text-white text-sm font-serif mb-1'>“Innas-safa wal-marwata min sya'a'irillah...”</p>
+                    </div>
+                `
+            },
+            {
+                chapter: "BAB 4",
+                title: "Tata Cara Pelaksanaan Tahallul",
+                content: `
+                    <p class='text-sm text-gray-300 leading-relaxed mb-4'>Tahallul adalah rukun penutup ibadah umrah yang ditandai dengan bercukur atau memotong rambut kepala sebagai simbol penyucian diri.</p>
+                    <ul class='space-y-2 text-xs text-gray-400 list-disc pl-5 mb-4'>
+                        <li>Mencukur habis (Halaq) adalah yang paling utama bagi laki-laki berdasarkan doa khusus Rasulullah SAW.</li>
+                        <li>Memotong sebagian rambut minimal sepanjang ruas jari (Taqsir) diperbolehkan bagi laki-laki dan wajib bagi jamaah wanita.</li>
+                        <li>Setelah proses tahallul selesai, segala macam larangan dalam kondisi ihram kini telah kembali dihalalkan.</li>
+                    </ul>
+                    <div class='p-4 rounded-lg bg-neutral-950 border border-gold-premium/15 text-xs text-center'>
+                        <span class='block text-gold-premium font-bold mb-1'>Adab Setelah Tahallul:</span>
+                        <p class='text-gray-400'>Mengucapkan syukur mendalam atas disempurnakannya ibadah umrah, serta bertekad mempertahankan peningkatan ketakwaan.</p>
+                    </div>
+                `
+            },
+            {
+                chapter: "BAB 5",
+                title: "Tips Kesehatan di Tanah Suci",
+                content: `
+                    <p class='text-sm text-gray-300 leading-relaxed mb-4'>Perbedaan cuaca ekstrim gurun pasir menuntut komitmen jamaah untuk menjaga kebugaran tubuh secara maksimal.</p>
+                    <ul class='space-y-2 text-xs text-gray-400 list-disc pl-5 mb-4'>
+                        <li>Minum air zam-zam secara teratur minimal 3-4 liter per hari guna mencegah dehidrasi.</li>
+                        <li>Gunakan pelembab kulit, sunblock wajah, serta bawa botol semprot air kecil untuk menyegarkan wajah saat berjalan siang hari.</li>
+                        <li>Selalu kenakan masker medis di area padat guna menyaring partikel debu halus demi kesehatan paru-paru Anda.</li>
+                    </ul>
+                    <div class='p-4 rounded-lg bg-neutral-950 border border-gold-premium/15 text-xs text-center'>
+                        <span class='block text-gold-premium font-bold mb-1'>Layanan Dokter AS-SYIFA:</span>
+                        <p class='text-gray-400'>Jika merasakan kendala meriang, batuk, atau lelah berlebih, hubungi tim medis pendamping kami yang bersiaga penuh di lobi hotel Anda.</p>
+                    </div>
+                `
+            }
+        ];
+
+        // State variables
+        let currentBookPage = 1; 
+        let isBookDarkMode = false;
+        let bookBookmarks = [];
+        let formFeedbackRating = 5;
+
+        // Custom Toast Notification Function
+        function showToast(message, type = "success") {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `px-5 py-3 rounded-xl border text-xs font-bold shadow-xl flex items-center gap-2.5 transition-all duration-300 translate-y-2 opacity-0 pointer-events-auto`;
+            
+            if (type === "success") {
+                toast.className += ` bg-neutral-900 border-gold-premium text-white`;
+                toast.innerHTML = `<i class="fa-solid fa-circle-check text-gold-premium"></i> ${message}`;
+            } else {
+                toast.className += ` bg-red-950 border-red-800 text-red-200`;
+                toast.innerHTML = `<i class="fa-solid fa-circle-exclamation text-red-400"></i> ${message}`;
+            }
+
+            container.appendChild(toast);
+            
+            // Trigger animation
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 50);
+
+            // Remove Toast
+            setTimeout(() => {
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            // Auto close mobile links on click
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // Header Background effect on scroll
+        const mainHeader = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                mainHeader.classList.add('bg-neutral-950/95', 'py-1');
+                mainHeader.classList.remove('bg-neutral-900/85', 'py-0');
+            } else {
+                mainHeader.classList.remove('bg-neutral-950/95', 'py-1');
+                mainHeader.classList.add('bg-neutral-900/85', 'py-0');
+            }
+        });
+
+        // Initialize Digital Book Reader
+        function renderBookPage() {
+            const pageData = manasikBookPages[currentBookPage - 1];
+            const contentContainer = document.getElementById('book-content-container');
+            const pageIndicator = document.getElementById('book-page-indicator');
+            const progressFill = document.getElementById('book-reading-progress');
+            const progressPct = document.getElementById('book-reading-percentage');
+            const bookmarkIcon = document.getElementById('bookmark-icon');
+
+            if (!contentContainer) return;
+
+            // Render content
+            contentContainer.innerHTML = `
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-bold uppercase tracking-widest text-gold-premium">${pageData.chapter}</span>
+                    <span class="text-[10px] text-gray-500 font-bold uppercase">Panduan Praktis Haji & Umrah</span>
+                </div>
+                <h3 class="text-2xl font-serif font-extrabold text-white mb-4" id="reader-heading-title">${pageData.title}</h3>
+                <div class="prose prose-invert max-w-none text-gray-300">
+                    ${pageData.content}
+                </div>
+            `;
+
+            // Update page indicator & progress bar
+            pageIndicator.innerText = `Halaman ${currentBookPage} / ${manasikBookPages.length}`;
+            const percentage = Math.round((currentBookPage / manasikBookPages.length) * 100);
+            progressFill.style.width = `${percentage}%`;
+            progressPct.innerText = `${percentage}%`;
+
+            // Adjust Bookmarking Icon state
+            if (bookBookmarks.includes(currentBookPage)) {
+                bookmarkIcon.className = "fa-solid fa-bookmark text-gold-premium";
+            } else {
+                bookmarkIcon.className = "fa-regular fa-bookmark text-gray-300";
+            }
+
+            // Sync night/day background theme styling
+            const bookCanvas = document.getElementById('book-canvas');
+            const titleHeading = document.getElementById('reader-heading-title');
+            if (isBookDarkMode) {
+                bookCanvas.style.backgroundColor = '#f7f7f7';
+                titleHeading.style.color = '#0c0c0c';
+                contentContainer.querySelectorAll('p, li').forEach(el => el.style.color = '#2d2d2d');
+            } else {
+                bookCanvas.style.backgroundColor = '#050505';
+                titleHeading.style.color = '#ffffff';
+                contentContainer.querySelectorAll('p, li').forEach(el => el.style.color = '#d1d5db');
+            }
+        }
+
+        // Turn book page
+        function changeBookPage(direction) {
+            let targetPage = currentBookPage + direction;
+            if (targetPage >= 1 && targetPage <= manasikBookPages.length) {
+                currentBookPage = targetPage;
+                renderBookPage();
+                showToast(`Membuka halaman ${currentBookPage}`);
+            } else {
+                showToast("Anda telah berada di halaman batas akhir.", "error");
+            }
+        }
+
+        // Toggle Bookmark state for current page
+        function toggleBookmarkCurrentPage() {
+            const idx = bookBookmarks.indexOf(currentBookPage);
+            if (idx > -1) {
+                bookBookmarks.splice(idx, 1);
+                showToast(`Halaman ${currentBookPage} dihapus dari bookmark.`);
+            } else {
+                bookBookmarks.push(currentBookPage);
+                const alertBanner = document.getElementById('bookmark-alert');
+                alertBanner.classList.remove('hidden');
+                setTimeout(() => alertBanner.classList.add('hidden'), 2500);
+            }
+            renderBookPage();
+        }
+
+        function hideBookmarkAlert() {
+            document.getElementById('bookmark-alert').classList.add('hidden');
+        }
+
+        // Toggle Day/Night Reader Theme
+        function toggleReaderTheme() {
+            isBookDarkMode = !isBookDarkMode;
+            const badge = document.getElementById('reading-mode-badge');
+            if (isBookDarkMode) {
+                badge.innerHTML = `<i class="fa-solid fa-moon text-indigo-500"></i> Mode Gelap`;
+                showToast("Membuka tampilan kontras tinggi kertas terang.");
+            } else {
+                badge.innerHTML = `<i class="fa-solid fa-sun text-gold-premium"></i> Mode Terang`;
+                showToast("Kembali ke tampilan standar malam.");
+            }
+            renderBookPage();
+        }
+
+        // Search reader text content simple simulation
+        const searchInput = document.getElementById('book-search-input');
+        if (searchInput) {
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    const query = searchInput.value.toLowerCase().trim();
+                    if (!query) return;
+
+                    // Search matches
+                    let foundPageIndex = -1;
+                    for (let i = 0; i < manasikBookPages.length; i++) {
+                        const rawText = (manasikBookPages[i].title + " " + manasikBookPages[i].content).toLowerCase();
+                        if (rawText.includes(query)) {
+                            foundPageIndex = i + 1;
+                            break;
+                        }
+                    }
+
+                    if (foundPageIndex > -1) {
+                        currentBookPage = foundPageIndex;
+                        renderBookPage();
+                        showToast(`Ditemukan materi kata '${query}' di halaman ${foundPageIndex}!`);
+                    } else {
+                        showToast(`Materi pencarian '${query}' tidak ditemukan.`, "error");
+                    }
+                }
+            });
+        }
+
+        // Scroll helper (MODIFIED to open modal directly instead of scrolling to bottom)
+        function openDigitalReader() {
+            const modal = document.getElementById('digital-reader-modal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Lock background scroll
+                renderBookPage();
+                showToast("Membuka Panduan Manasik Digital...");
+            }
+        }
+
+        function closeDigitalReader() {
+            const modal = document.getElementById('digital-reader-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = ''; // Unlock background scroll
+                showToast("Menutup Panduan Manasik.");
+            }
+        }
+
+        // Close modal on Escape key press
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeDigitalReader();
+                closeVideoPlayer();
+            }
+        });
+
+        // Digital Education Hub Tab Controller
+        function switchEduTab(tabType) {
+            const videoBtn = document.getElementById('tab-btn-video');
+            const infoBtn = document.getElementById('tab-btn-infografis');
+            const videoPanel = document.getElementById('edu-panel-video');
+            const infoPanel = document.getElementById('edu-panel-infografis');
+
+            if (tabType === 'video') {
+                videoBtn.className = "px-6 py-2.5 rounded-lg text-sm font-bold tracking-wider uppercase transition-all bg-gold-premium text-black shadow-lg";
+                infoBtn.className = "px-6 py-2.5 rounded-lg text-sm font-bold tracking-wider uppercase transition-all text-gray-400 hover:text-white";
+                videoPanel.classList.remove('hidden');
+                infoPanel.classList.add('hidden');
+                showToast("Menampilkan Pustaka Video Edukasi");
+            } else {
+                infoBtn.className = "px-6 py-2.5 rounded-lg text-sm font-bold tracking-wider uppercase transition-all bg-gold-premium text-black shadow-lg";
+                videoBtn.className = "px-6 py-2.5 rounded-lg text-sm font-bold tracking-wider uppercase transition-all text-gray-400 hover:text-white";
+                infoPanel.classList.remove('hidden');
+                videoPanel.classList.add('hidden');
+                showToast("Menampilkan Pustaka Infografis Panduan");
+            }
+        }
+
+        // Play Simulation Video Modal
+        function playMockVideo(videoTitle) {
+            const modal = document.getElementById('video-player-modal');
+            const titleEl = document.getElementById('modal-video-title');
+            if (modal && titleEl) {
+                titleEl.innerText = `Menonton Video: ${videoTitle}`;
+                modal.classList.remove('hidden');
+            }
+        }
+
+        function closeVideoPlayer() {
+            document.getElementById('video-player-modal').classList.add('hidden');
+        }
+
+        // Download simulation alert
+        function simulateDownload(fileName) {
+            showToast(`Mulai mengunduh file: ${fileName}...`);
+            setTimeout(() => {
+                showToast(`Berhasil menyimpan ${fileName} ke perangkat Anda!`);
+            }, 1500);
+        }
+
+        // Interactive Floor Plan Data
+        const floorPlanData = {
+            1: {
+                title: "Ruang Pembukaan & Pembekalan Teori",
+                desc: "Ruang aula berpendingin udara (AC) lengkap dengan videotron modern untuk presentasi ajar. Menjadi titik kumpul pembukaan kelas teori bimbingan manasik oleh tim narasumber."
+            },
+            2: {
+                title: "Area Utama Praktik Thawaf",
+                desc: "Simulasi episentrum utama halaman Masjidil Haram yang dilengkapi replika Ka'bah dengan presisi ukuran asli, garis awal Hajar Aswad, Maqam Ibrahim, dan Rukun Yamani."
+            },
+            3: {
+                title: "Koridor Praktik Sa'i",
+                desc: "Jalur perlintasan khusus panjang yang merepresentasikan jarak Safa ke Marwah. Dilengkapi pilar lampu hijau gantung sebagai batas rujukan memulai lari kecil."
+            },
+            4: {
+                title: "Ruang Pengambilan Perlengkapan",
+                desc: "Fasilitas logistik serah terima atribut resmi berupa kain ihram, kerudung, buku doa saku, gelang identitas magnetik, tas paspor, dan koper kabin jamaah."
+            },
+            5: {
+                title: "Ruang Ganti Kain Ihram",
+                desc: "Kamar ganti khusus bersekat privasi tinggi untuk jamaah berlatih cara melilitkan, melipat, dan mengencangkan kain ihram bebas peniti/jahitan dengan aman."
+            },
+            6: {
+                title: "Ruang Rehat & Refresmen",
+                desc: "Area lounge bersantai bagi jamaah pasca-praktik fisik melelahkan. Disediakan dispenser air zam-zam simulasi, kurma segar, kopi arabika, serta minuman hangat gratis."
+            },
+            7: {
+                title: "Kantor Admin & Customer Support",
+                desc: "Loket pelayanan cepat untuk verifikasi paspor, suntik vaksin meningitis, cetak kartu bimbingan, konsultasi regulasi Saudi, serta registrasi pemutakhiran data jamaah."
+            },
+            8: {
+                title: "Kamar Bilas, Toilet, & Tempat Wudhu",
+                desc: "Fasilitas sanitasi luas, bersih, dan higienis dirancang khusus guna mengakomodasi latihan tata tertib wudhu tertib berkelompok dengan puluhan pancuran air keran."
+            }
+        };
+
+        // Select Area on Floor Plan
+        function selectFloorArea(areaId) {
+            // Highlight selected card visually, remove borders from rest
+            for (let i = 1; i <= 8; i++) {
+                const el = document.getElementById(`area-card-${i}`);
+                if (el) {
+                    if (i === areaId) {
+                        el.classList.add('border-gold-premium', 'bg-gold-premium/10');
+                        el.classList.remove('border-gold-premium/10', 'bg-neutral-900');
+                    } else {
+                        el.classList.remove('border-gold-premium', 'bg-gold-premium/10');
+                        el.classList.add('border-gold-premium/10', 'bg-neutral-900');
+                    }
+                }
+            }
+
+            // Update Walkthrough Panel details
+            const data = floorPlanData[areaId];
+            if (data) {
+                document.getElementById('walkthrough-badge').innerText = `ZONA AKTIF - A${areaId}`;
+                document.getElementById('walkthrough-title').innerText = data.title;
+                document.getElementById('walkthrough-desc').innerText = data.desc;
+                
+                // Show dynamic checklist features based on selection
+                const featuresEl = document.getElementById('walkthrough-features');
+                if (areaId === 2 || areaId === 3) {
+                    featuresEl.innerHTML = `
+                        <div class="flex items-center gap-3 text-xs text-gray-300">
+                            <i class="fa-solid fa-person-running text-gold-premium w-4"></i>
+                            <span>Dilengkapi pembimbing lapangan aktif</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-xs text-gray-300">
+                            <i class="fa-solid fa-microphone-lines text-gold-premium w-4"></i>
+                            <span>Sistem audio nirkabel (Audio Receiver)</span>
+                        </div>
+                    `;
+                } else if (areaId === 4 || areaId === 5) {
+                    featuresEl.innerHTML = `
+                        <div class="flex items-center gap-3 text-xs text-gray-300">
+                            <i class="fa-solid fa-box text-gold-premium w-4"></i>
+                            <span>Verifikasi nomor atribut barcode</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-xs text-gray-300">
+                            <i class="fa-solid0-sparkles text-gold-premium w-4"></i>
+                            <span>Higiene & kebersihan terjaga</span>
+                        </div>
+                    `;
+                } else {
+                    featuresEl.innerHTML = `
+                        <div class="flex items-center gap-3 text-xs text-gray-300">
+                            <i class="fa-solid fa-circle-info text-gold-premium w-4"></i>
+                            <span>Informasi detail fungsi fasilitas</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-xs text-gray-300">
+                            <i class="fa-solid fa-chalkboard-user text-gold-premium w-4"></i>
+                            <span>Bimbingan penatua manasik</span>
+                        </div>
+                    `;
+                }
+
+                showToast(`Menampilkan informasi Zona A${areaId}`);
+            }
+        }
+
+        // Filter Masonry Media Gallery
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const btns = document.querySelectorAll('.gallery-filter-btn');
+
+            // Toggle filter button styling
+            btns.forEach(btn => {
+                const text = btn.innerText.toLowerCase();
+                const isMatch = (category === 'semua' && text.includes('semua')) || 
+                                (category === 'manasik' && text.includes('bimbingan')) ||
+                                (category === 'alqosbah' && text.includes('alqosbah')) ||
+                                (category === 'bagasi' && text.includes('koper')) ||
+                                (category === 'rapat' && text.includes('panitia')) ||
+                                (category === 'makkah' && text.includes('makkah')) ||
+                                (category === 'madinah' && text.includes('madinah'));
+                
+                if (isMatch) {
+                    btn.className = "gallery-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all bg-gold-premium text-black shadow-md";
+                } else {
+                    btn.className = "gallery-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-gray-400 hover:text-white bg-neutral-900";
+                }
+            });
+
+            // Filter items layout
+            let matchCount = 0;
+            items.forEach(item => {
+                if (category === 'semua' || item.classList.contains(category)) {
+                    item.classList.remove('hidden');
+                    matchCount++;
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+
+            showToast(`Menampilkan ${matchCount} dokumentasi foto.`);
+        }
+
+        // Rating Form Star Selection
+        function selectFormRating(stars) {
+            formFeedbackRating = stars;
+            const starContainer = document.getElementById('rating-stars-container');
+            const buttons = starContainer.querySelectorAll('button');
+
+            buttons.forEach((btn, index) => {
+                if (index < stars) {
+                    btn.className = "text-2xl text-gold-premium transition-all";
+                } else {
+                    btn.className = "text-2xl text-gray-600 hover:text-gold-premium transition-all";
+                }
+            });
+        }
+
+        // Live Submit Pilgrim Satisfaction Feedback Form
+        let baseRespondentCount = 1842;
+        let baseTotalRatingScore = 1842 * 9.7; // Simulating cumulative rating averages
+
+        function submitPilgrimFeedback(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('feedback-name').value;
+            const comments = document.getElementById('feedback-comments').value;
+
+            if (!name || !comments) {
+                showToast("Harap lengkapi seluruh kolom formulir.", "error");
+                return;
+            }
+
+            // Recalculate Dashboard Stats dynamically!
+            baseRespondentCount++;
+            baseTotalRatingScore += (formFeedbackRating * 2); // mapping 5 stars to 10 points system
+            const newAvg = (baseTotalRatingScore / baseRespondentCount).toFixed(1);
+
+            // Update DOM metrics
+            document.getElementById('stat-respondent-count').innerText = baseRespondentCount.toLocaleString('id-ID');
+            document.getElementById('stat-rating-text').innerText = newAvg;
+
+            // Recalculate Circle SVG Gauge offset
+            const strokeDashoffset = Math.round(471 - (471 * (newAvg / 10)));
+            document.getElementById('stat-gauge-circle').style.strokeDashoffset = strokeDashoffset;
+
+            // Show Custom Thank You Toast
+            showToast(`Terima kasih Bapak/Ibu ${name}, umpan balik berhasil di-posting pada sistem kami.`);
+
+            // Clear inputs
+            document.getElementById('feedback-form').reset();
+            selectFormRating(5); // reset star
+        }
+
+        // On Window Load Initialization
+        window.onload = function () {
+            // Pre-select first area in Plaza map
+            selectFloorArea(1);
+        }
+    </script>
+</body>
+</html>
